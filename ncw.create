@@ -1,0 +1,154 @@
+drop table if exists cinplex;
+drop table if exists movie;
+drop table if exists membership;
+drop table if exists member;
+drop table if exists theater;
+drop table if exists seat;
+drop table if exists reservation;
+drop table if exists showings;
+drop table if exists res_seat_assignments;
+drop table if exists watch;
+drop table if exists play;
+
+
+create table cinplex
+(
+	name		varchar(32), 
+	addr		varchar(32) primary key,
+	phone		varchar(13)
+	
+)
+engine = InnoDB;
+
+create table movie
+(
+	title		varchar(32),
+	descr		varchar(150),
+	runtime		int,
+	rating		varchar(6),
+	stars		varchar(64),
+
+	primary key (title, descr)
+)
+engine = InnoDB;
+
+create table membership
+(
+	acct		int primary key,
+	start_date	date,
+	end_date	date
+)
+engine = InnoDB;
+
+create table member
+(
+	f_name		varchar(50),
+	l_name		varchar(50),
+	addr		varchar(50),
+	age			int,
+	email		varchar(100),
+	phone		varchar(13),
+	acct		varchar(16)
+				references membership(acct),
+
+	primary key (f_name,l_name, email, acct)
+)
+engine = InnoDB;
+
+create table theater
+(
+	number		int,
+	addr		varchar(32)
+				references cinplex(addr),
+	cap			int,
+	seat_chart	varchar(16),
+
+	primary key	(number, addr)
+
+)
+engine = InnoDB;
+
+create table seat
+(
+	row			int,
+	col			int,
+	number		int
+				references theater(number),
+	addr		varchar(32)
+				references cinplex(addr),
+	primary key (row, col, number, addr)
+)
+engine = InnoDB;
+
+create table reservation
+(
+	id 			int primary key,
+	cinplex		varchar(32),
+	theater		int,
+	movie		varchar(32),
+	date  		date,
+	time		time,
+	charge		dec(6, 2),
+	f_name		varchar(50)
+				references member(f_name),
+	l_name		varchar(50)
+				references member(l_name),
+	acct 		varchar(16)
+				references membership(acct)
+)
+engine = InnoDB;
+
+create table res_seat_assignments
+(
+	id 			int
+				references reservation(id),
+	seat_no		varchar(16),
+
+	primary key(id, seat_no)
+)
+engine = InnoDB;
+
+create table showings
+(
+	addr		varchar(32)
+				references cinplex(addr),
+	title		varchar(50)
+				references movie(title),
+	descr		varchar(50)
+				references movie(descr),
+	date 		date,
+	time		time,
+
+	primary key(addr, title, descr, date, time)
+)
+engine = InnoDB;
+
+create table watch
+(
+	f_name		varchar(50)
+				references member(f_name),
+	l_name		varchar(50)
+				references member(l_name),
+	email		varchar(100)
+				references member(email),
+	title		varchar(50)
+				references movie(title),
+	descr		varchar(150)
+				references movie(descr),
+	primary key(f_name, l_name, email, title, descr)
+)
+engine = InnoDB;
+
+create table play
+(
+	t_num		int
+				references theater(number),
+	title		varchar(50)
+				references movie(title),
+	descr		varchar(150)
+				references movie(descr),
+	addr		varchar(100)
+				references cinplex(addr),
+	primary key(t_num, title, descr, addr)
+)
+engine = InnoDB;

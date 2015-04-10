@@ -1,0 +1,7 @@
+select 'Loading data into member table';
+delete from member;
+show warnings;
+load data local infile 'member.data' 
+replace
+into table member
+fields terminated by ',';
