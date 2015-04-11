@@ -1,0 +1,64 @@
+select 'Loading data into member table';
+delete from member;
+show warnings;
+load data local infile 'member.data' 
+replace
+into table member
+fields terminated by ',';
+#
+select 'Loading data into theater table';
+delete from theater;
+show warnings;
+load data local infile 'theater.data' 
+replace
+into table theater
+fields terminated by ',';
+#
+select 'Loading data into membership table';
+delete from membership;
+show warnings;
+load data local infile 'membership.data' 
+replace
+into table membership
+fields terminated by ',';
+#
+select 'Loading data into movie table';
+delete from movie;
+show warnings;
+load data local infile 'movie.data' 
+replace
+into table movie
+fields terminated by ',';
+#
+select 'Loading data into play table';
+delete from play;
+show warnings;
+load data local infile 'play.data' 
+replace
+into table play
+fields terminated by ',';
+#
+select 'Loading data into res_seat_assignments table';
+delete from res_seat_assignments;
+show warnings;
+load data local infile 'res_seat_assignments.data' 
+replace
+into table res_seat_assignments
+fields terminated by ',';
+#
+select 'Loading data into reservation table';
+delete from reservation;
+show warnings;
+load data local infile 'reservation.data' 
+replace
+into table reservation
+fields terminated by ',';
+#
+select 'Loading data into watch table';
+delete from watch;
+show warnings;
+load data local infile 'watch.data' 
+replace
+into table watch
+fields terminated by ',';
+#

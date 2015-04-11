@@ -5,7 +5,6 @@ drop table if exists member;
 drop table if exists theater;
 drop table if exists seat;
 drop table if exists reservation;
-drop table if exists showings;
 drop table if exists res_seat_assignments;
 drop table if exists watch;
 drop table if exists play;
@@ -108,21 +107,6 @@ create table res_seat_assignments
 )
 engine = InnoDB;
 
-create table showings
-(
-	addr		varchar(32)
-				references cinplex(addr),
-	title		varchar(50)
-				references movie(title),
-	descr		varchar(50)
-				references movie(descr),
-	date 		date,
-	time		time,
-
-	primary key(addr, title, descr, date, time)
-)
-engine = InnoDB;
-
 create table watch
 (
 	f_name		varchar(50)
@@ -149,6 +133,7 @@ create table play
 				references movie(descr),
 	addr		varchar(100)
 				references cinplex(addr),
-	primary key(t_num, title, descr, addr)
+	showtime	datetime,
+	primary key(t_num, title, descr, addr, showtime)
 )
 engine = InnoDB;
