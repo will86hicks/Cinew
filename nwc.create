@@ -8,12 +8,13 @@ drop table if exists reservation;
 drop table if exists res_seat_assignments;
 drop table if exists watch;
 drop table if exists play;
+drop table if exists showings;
 
 
 create table cinplex
 (
 	name		varchar(32), 
-	addr		varchar(32),
+	addr		varchar(50),
 	phone		varchar(13),
 	id			int auto_increment NOT NULL,
 	
@@ -63,12 +64,13 @@ engine = InnoDB;
 create table theater
 (
 	number		int,
-	addr		varchar(32)
-				references cinplex(addr),
+	addr			varchar(32)
+					references cinplex(addr),
 	cap			int,
 	seat_chart	varchar(16),
+	id				int NOT NULL auto_increment,
 
-	primary key	(number, addr)
+	primary key	(id)
 
 )
 engine = InnoDB;
@@ -131,7 +133,7 @@ engine = InnoDB;
 
 create table play
 (
-	t_num		int
+	t_num	int
 				references theater(number),
 	title		varchar(50)
 				references movie(title),
@@ -141,5 +143,20 @@ create table play
 				references cinplex(addr),
 	showtime	datetime,
 	primary key(t_num, title, descr, addr, showtime)
+)
+engine = InnoDB;
+
+create table showings
+(
+	time				varchar(50),
+	addr				varchar(50)
+						references cinplex(addr),
+	t_num			int
+						references theater(number),
+	title				varchar(50)
+						references movie(title),
+	descr			varchar(150)
+						references movie(descr),
+	primary key(t_num,title,time)
 )
 engine = InnoDB;

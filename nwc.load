@@ -62,3 +62,20 @@ replace
 into table watch
 fields terminated by ',';
 #
+select 'Loading data into cinplex table';
+delete from cinplex;
+show warnings;
+load data local infile 'cinplex.data' 
+replace
+into table cinplex
+fields terminated by '.';
+#
+#
+select 'Loading data into showings table';
+delete from showings;
+show warnings;
+load data local infile 'showings.data' 
+replace
+into table showings
+fields terminated by '.';
+#
