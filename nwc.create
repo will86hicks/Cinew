@@ -13,8 +13,11 @@ drop table if exists play;
 create table cinplex
 (
 	name		varchar(32), 
-	addr		varchar(32) primary key,
-	phone		varchar(13)
+	addr		varchar(32),
+	phone		varchar(13),
+	id			int auto_increment NOT NULL,
+	
+	primary key(id)
 	
 )
 engine = InnoDB;
@@ -26,16 +29,19 @@ create table movie
 	runtime		int,
 	rating		varchar(6),
 	stars		varchar(64),
+	id			int auto_increment NOT NULL,
 
-	primary key (title, descr)
+	primary key (id)
 )
 engine = InnoDB;
 
 create table membership
 (
-	acct		int primary key,
+	acct			int NOT NULL auto_increment,
 	start_date	date,
-	end_date	date
+	end_date	date,
+	
+	primary key (acct)
 )
 engine = InnoDB;
 
@@ -43,14 +49,14 @@ create table member
 (
 	f_name		varchar(50),
 	l_name		varchar(50),
-	addr		varchar(50),
+	addr			varchar(50),
 	age			int,
 	email		varchar(100),
 	phone		varchar(13),
-	acct		varchar(16)
-				references membership(acct),
+	acct			int NOT NULL auto_increment 
+					references membership(acct),
 
-	primary key (f_name,l_name, email, acct)
+	primary key (acct)
 )
 engine = InnoDB;
 
