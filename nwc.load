@@ -12,7 +12,7 @@ show warnings;
 load data local infile 'theater.data' 
 replace
 into table theater
-fields terminated by ',';
+fields terminated by '.';
 #
 select 'Loading data into membership table';
 delete from membership;
@@ -68,14 +68,5 @@ show warnings;
 load data local infile 'cinplex.data' 
 replace
 into table cinplex
-fields terminated by '.';
-#
-#
-select 'Loading data into showings table';
-delete from showings;
-show warnings;
-load data local infile 'showings.data' 
-replace
-into table showings
 fields terminated by '.';
 #

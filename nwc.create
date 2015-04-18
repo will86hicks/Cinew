@@ -8,7 +8,6 @@ drop table if exists reservation;
 drop table if exists res_seat_assignments;
 drop table if exists watch;
 drop table if exists play;
-drop table if exists showings;
 
 
 create table cinplex
@@ -90,7 +89,7 @@ engine = InnoDB;
 
 create table reservation
 (
-	id 			int primary key,
+	id 			int primary key NOT NULL auto_increment,
 	cinplex		varchar(32),
 	theater		int,
 	movie		varchar(32),
@@ -144,20 +143,5 @@ create table play
 				references cinplex(addr),
 	showtime	datetime,
 	primary key(t_num, title, descr, addr, showtime)
-)
-engine = InnoDB;
-
-create table showings
-(
-	time				varchar(50),
-	addr				varchar(50)
-						references cinplex(addr),
-	t_num			int
-						references theater(number),
-	title				varchar(50)
-						references movie(title),
-	descr			varchar(150)
-						references movie(descr),
-	primary key(t_num,title,time)
 )
 engine = InnoDB;
