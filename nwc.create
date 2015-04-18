@@ -64,8 +64,9 @@ engine = InnoDB;
 create table theater
 (
 	number		int,
-	addr			varchar(32)
-					references cinplex(addr),
+	addr		varchar(32)
+				references cinplex(addr),
+	showtime	time,
 	cap			int,
 	seat_chart	varchar(16),
 	id				int NOT NULL auto_increment,
