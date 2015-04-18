@@ -89,7 +89,7 @@ engine = InnoDB;
 
 create table reservation
 (
-	id 			int primary key,
+	id 			int primary key NOT NULL auto_increment,
 	cinplex		varchar(32),
 	theater		int,
 	movie		varchar(32),
