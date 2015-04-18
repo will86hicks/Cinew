@@ -70,12 +70,3 @@ replace
 into table cinplex
 fields terminated by '.';
 #
-#
-select 'Loading data into showings table';
-delete from showings;
-show warnings;
-load data local infile 'showings.data' 
-replace
-into table showings
-fields terminated by '.';
-#
