@@ -1,19 +1,19 @@
-CINEMA_COMPLEX(Address[pk],Name,Phone_Number)
+CINEMA_COMPLEX(Address,Name,Phone_Number,Cinema_Complex_ID[pk])
 
 MEMBERSHIP(Account_Number[pk],Primary_Member,Start_Date,End_Date)
 
-MOVIE(Movie_Title[pk],Movie_Description[pk],Running_Time,Rating,Stars)
+MOVIE(Movie_Title,Movie_Description,Running_Time,Rating,Stars,Movie_ID[pk])
 
-MEMBER(First_Name[pk],Last_Name[pk],Email_Address[pk],Address,Age,Phone_Number)
+MEMBER(First_Name[pk],Last_Name[pk],Email_Address[pk],Address,Age,Phone_Number,Membership_Account_Number[pk,fk])
 
-THEATER(Theater_Number[pk],Cinema_Complex_Address[pk,fk], ShowTime, Capacity,Seating_Chart)
+THEATER(Theater_Number[pk],Cinema_Complex_ID[pk,fk], ShowTime, Capacity,Seating_Chart)
 
-SEAT(Column_Number[pk],Row_Number[pk],Theater_Number[pk,fk],Cinema_Complex_Address[pk,fk],Reserve_Seat_Reserved,Reservation_Number[fk],Member_First_Name[fk],Member_Last_Name[fk],Member_Email_Address[fk],Membership_Account_Number[fk])
+SEAT(Column_Number[pk],Row_Number[pk],Theater_Number[pk,fk],Cinema_Complex_ID[pk,fk],Reserve_Seat_Reserved,Reservation_ID[fk],Member_First_Name[fk],Member_Last_Name[fk],Member_Email_Address[fk],Membership_Account_Number[fk])
 
-RESERVATION(Number[pk],Time,Date,Complex,Theater,Movie,Total_Charge,Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk])
+RESERVATION(Reservation_ID[pk],Time,Date,Complex,Theater,Movie,Total_Charge,Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk])
 
-PLAY(Cinema_Complex_Address[pk,fk],Theater_Number[pk,fk],Movie_Title[pk,fk],Movie_Description[pk,fk])
+PLAY(Cinema_Complex_ID[pk,fk],Theater_Number[pk,fk],Movie_ID[pk,fk],Show_Time[pk])
 
-WATCH(Movie_Title[pk,fk],Movie_Description[pk,fk],Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk])
+WATCH(Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk],Movie_ID[pk,fk])
 
-RESERVATION_SEAT_ASSIGNMENTS(Seat_Assignments[pk],Reservation_Number[pk,fk],Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk])
+RESERVATION_SEAT_ASSIGNMENTS(Seat_Assignments[pk],Reservation_ID[pk,fk],Member_First_Name[pk,fk],Member_Last_Name[pk,fk],Member_Email_Address[pk,fk],Membership_Account_Number[pk,fk])
