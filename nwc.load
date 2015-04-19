@@ -4,7 +4,7 @@ show warnings;
 load data local infile 'member.data' 
 replace
 into table member
-fields terminated by ',';
+fields terminated by ';';
 #
 select 'Loading data into theater table';
 delete from theater;
