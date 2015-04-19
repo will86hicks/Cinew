@@ -27,7 +27,7 @@ create table movie
 	descr		varchar(150),
 	runtime		int,
 	rating		varchar(6),
-	stars		varchar(65535),
+	stars		varchar(1500),
 	id			int auto_increment NOT NULL,
 
 	primary key (id)
@@ -65,7 +65,6 @@ create table theater
 	number		int,
 	cinplex_id	varchar(32)
 				references cinplex(id),
-	showtime	time,
 	cap			int,
 	seat_chart	varchar(16),
 

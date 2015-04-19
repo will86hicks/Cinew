@@ -70,3 +70,10 @@ replace
 into table cinplex
 fields terminated by '.';
 #
+select 'Loading data into seat table';
+delete from seat;
+show warnings;
+load data local infile 'seat.data' 
+replace
+into table seat
+fields terminated by ',';
