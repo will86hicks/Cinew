@@ -1,17 +1,17 @@
-select 'Loading data into member table';
-delete from member;
+select 'Loading data into cinplex table';
+delete from cinplex;
 show warnings;
-load data local infile 'member.data' 
+load data local infile 'cinplex.data' 
 replace
-into table member
-fields terminated by ',';
+into table cinplex
+fields terminated by '.';
 #
-select 'Loading data into theater table';
-delete from theater;
+select 'Loading data into movie table';
+delete from movie;
 show warnings;
-load data local infile 'theater.data' 
+load data local infile 'movie.data' 
 replace
-into table theater
+into table movie
 fields terminated by ',';
 #
 select 'Loading data into membership table';
@@ -22,20 +22,36 @@ replace
 into table membership
 fields terminated by ',';
 #
-select 'Loading data into movie table';
-delete from movie;
+select 'Loading data into member table';
+delete from member;
 show warnings;
-load data local infile 'movie.data' 
+load data local infile 'member.data' 
 replace
-into table movie
+into table member
+fields terminated by ';';
+#
+select 'Loading data into theater table';
+delete from theater;
+show warnings;
+load data local infile 'theater.data' 
+replace
+into table theater
+fields terminated by '.';
+#
+select 'Loading data into reservation table';
+delete from reservation;
+show warnings;
+load data local infile 'reservation.data' 
+replace
+into table reservation
 fields terminated by ',';
 #
-select 'Loading data into play table';
-delete from play;
+select 'Loading data into seat table';
+delete from seat;
 show warnings;
-load data local infile 'play.data' 
+load data local infile 'seat.data' 
 replace
-into table play
+into table seat
 fields terminated by ',';
 #
 select 'Loading data into res_seat_assignments table';
@@ -46,12 +62,12 @@ replace
 into table res_seat_assignments
 fields terminated by ',';
 #
-select 'Loading data into reservation table';
-delete from reservation;
+select 'Loading data into play table';
+delete from play;
 show warnings;
-load data local infile 'reservation.data' 
+load data local infile 'play.data' 
 replace
-into table reservation
+into table play
 fields terminated by ',';
 #
 select 'Loading data into watch table';
@@ -61,4 +77,3 @@ load data local infile 'watch.data'
 replace
 into table watch
 fields terminated by ',';
-#
