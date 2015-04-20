@@ -1,14 +1,13 @@
-drop table if exists cinplex;
-drop table if exists movie;
-drop table if exists membership;
-drop table if exists member;
-drop table if exists theater;
-drop table if exists seat;
-drop table if exists reservation;
-drop table if exists res_seat_assignments;
 drop table if exists watch;
 drop table if exists play;
-
+drop table if exists res_seat_assignments;
+drop table if exists seat;
+drop table if exists reservation;
+drop table if exists theater;
+drop table if exists member;
+drop table if exists membership;
+drop table if exists movie;
+drop table if exists cinplex;
 
 create table cinplex
 (
@@ -53,8 +52,7 @@ create table member
 	age			int,
 	email		varchar(100),
 	phone		varchar(13),
-	acct		int
-					references membership(acct),
+	acct		int references membership(acct),
 
 	primary key (f_name, l_name, email, acct)
 )
