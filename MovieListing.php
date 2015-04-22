@@ -14,6 +14,7 @@ Movie Listings
 </head>
 
 
+
 <h3>MOVIE LISTINGS</h3>
 <form action="MovieListingDisplay.php" method="POST">
 
@@ -30,10 +31,14 @@ Select a Complex:<br>
 ?>
 </select>
 
-<br><br><br>
+<br><br>
 <button type="submit">Select Cinema</button>
 </form>
 
+<br><br><br>
+<form action="StartPage.php" method="POST">
+<h3>Go Back</h3>
+<button>BACK</button>
 </div>
 </body>
 </html>
