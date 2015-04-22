@@ -1,6 +1,8 @@
 <?php
 include 'login.php';
-$complex = "";
+echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
+echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
+$user = $_SESSION["user"];
 ?>
 
 <html>

@@ -22,18 +22,25 @@ Create Account
 ?>
 LOGIN ID:
 <select name="ID">
+	<optgroup label="Users">
 <?php
 	while($row = mysql_fetch_array($IDQuery)){
-		echo "<option value='{$row['acct']}'>{$row['acct']} - {$row['f_name']} {$row['l_name']}</option>" ;
+		echo "<option value='{$row['acct']}'>ID: {$row['acct']} Name: {$row['f_name']} {$row['l_name']}</option>" ;
 	}
 ?>
+	<optgroup label="Guest">
+		<option value="Guest">Guest</option>
+	<optgroup label="Admin">
+		<option value="Admin">Admin</option>
+	<optgroup label="Employee">
+		<option value="Employee">Employee</option>
 </select>
 
 <br><br>
 <button type="submit">LOGIN</button>
 </form>
 
-<form action="http://cmps460server.cacs.louisiana.edu/~jjl8705/AcctCreateForm.php">
+<form action="AcctCreateForm.php">
 <button type="submit">CREATE ACCOUNT</button>
 </form>
 </div>

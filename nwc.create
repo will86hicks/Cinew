@@ -36,7 +36,7 @@ engine = InnoDB;
 create table membership
 (
 	acct		int NOT NULL auto_increment,
-	prim_member	varchar(100),
+	prim_member	int NOT NULL references member(id),
 	start_date	date,
 	end_date	date,
 	
@@ -46,6 +46,7 @@ engine = InnoDB;
 
 create table member
 (
+	id			int NOT NULL auto_increment,
 	f_name		varchar(50),
 	l_name		varchar(50),
 	addr		varchar(50),
@@ -54,7 +55,7 @@ create table member
 	phone		varchar(13),
 	acct		int references membership(acct),
 
-	primary key (f_name, l_name, email, acct)
+	primary key (id)
 )
 engine = InnoDB;
 

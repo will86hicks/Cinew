@@ -1,5 +1,8 @@
 <?php
 include 'login.php';
+echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
+echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
+$user = $_SESSION["user"];
 ?>
 
 <html>
@@ -7,16 +10,31 @@ include 'login.php';
 
 <head>
 <title> 
-Create Account
+Add Dependent
 </title>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+</style>
 </head>
 
-<body style="background-color:lightgrey">
-<h3>CREATE ACCOUNT</h3>
-<br>
+<div align="center">
+<body style="background-color:darkgrey">
+<h2>ADD DEPENDENT</h2>
+<br></div>
 
-<form action="AcctCreatePHP.php" method="POST">
-<form action=autocomplete="on">
+<form action="" method="POST">
 E-mail: <input type="email" name="usremail" placeholder="bob@something.com" required id ="email">
 <br><br>
 First Name: <input type="input" name="fname" required id="fname" required placeholder="BOB">
@@ -29,10 +47,9 @@ City: <input type="input" name="city" id="city" required placeholder="Mario Kart
 State: <input type="input" name="state" id="state" required size="1"  placeholder="SNES" >
 ZipCode: <input type="input" name="zip"  id="zip"  size="5"  placeholder="70765" minlength="5" maxlength="5">
 <br><br>
-Phone Number: <input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum"required>
+Phone Number: <input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum" required>
 
 Age: <input type="number" name="age" id="ages" required placeholder="23">
-<br>
 
 <br><br>
 Months of Membership:
@@ -52,24 +69,20 @@ Months of Membership:
 </select>
 <br><br>
 
-<?php
-    $result = mysql_query("SELECT * FROM member") or die(mysql_error());
-?>
 <div align="center">
 <p><b>The membership fee is $30 per month per person.</b></p>
-<!--Select a member<br>
-<select name="members" multiple>
-	<option value="None">None</option>
-<?php
-	//while($row = mysql_fetch_array($result)){
-		//echo "<option value='{$row['f_name']} {$row['l_name']}'>{$row['f_name']} {$row['l_name']}</option>" ;
-	//}
-?>
+
 </select-->
 <br><br>
-<button type="submit">CREATE ACCOUNT</button>
+<button class ='button1' type="submit">Add Dependent</button>
+</form>
+
+<br><br><br>
+
+<form action='StartPage.php'>
+<div align='center'> <button class='button2'>Back</button> </div>
+</form>
+
 </div>
-</form>
-</form>
 </body>
 </html>
