@@ -43,11 +43,19 @@ select{
 <br><br>
 <form action="MovieViewingHistory.php" method="POST">
 
+<?php
+$Membership = mysql_query("select acct from membership") or die(mysql_error());
+?>
 <h3>Select All Members or Current Member:</h3><br>
 <select name="chosenSelection">
-    <option value="allMembers">All Members on Account</option>
 <?php
-	echo"<option value='{$ID}'>{$user}</option>";
+	while($row = mysql_fetch_array($Membership)){
+		echo"<optgroup label='Membership: {$row['acct']}'>";
+		$members = mysql_query("select f_name,l_name,id from member where membership_acct = {$row['acct']}") or die(mysql_error());
+		while($row2 = mysql_fetch_array($members)){
+			echo"<option value='{$row2['id']}'>ID: {$row2['id']} Name: {$row2['f_name']} {$row2['l_name']}</option>";
+		}
+	}
 ?>
 </select>
 
