@@ -11,10 +11,10 @@ drop table if exists cinplex;
 
 create table cinplex
 (
-	id			int auto_increment NOT NULL,
 	name		varchar(32), 
 	addr		varchar(50),
 	phone		varchar(13),
+	id			int auto_increment NOT NULL,
 	
 	primary key(id)
 )
@@ -22,13 +22,12 @@ engine = InnoDB;
 
 create table movie
 (
-	id			int auto_increment NOT NULL,
 	title		varchar(32),
 	descr		varchar(150),
 	runtime		int,
 	rating		varchar(6),
 	stars		varchar(1500),
-	
+	id			int auto_increment NOT NULL,
 
 	primary key (id)
 )
@@ -36,10 +35,10 @@ engine = InnoDB;
 
 create table membership
 (
-	acct		int NOT NULL auto_increment,
+	acct					int NOT NULL auto_increment,
 	prim_member	int NOT NULL references member(id),
-	start_date	date,
-	end_date	date,
+	start_date			date,
+	end_date			date,
 	
 	primary key (acct)
 )
@@ -47,26 +46,24 @@ engine = InnoDB;
 
 create table member
 (
-	id			int NOT NULL auto_increment,
-	acct		int references membership(acct),
-	f_name		varchar(50),
-	l_name		varchar(50),
-	addr		varchar(50),
-	age			int,
-	email		varchar(100),
-	phone		varchar(13),
-
+	id						int NOT NULL auto_increment,
+	f_name					varchar(50),
+	l_name					varchar(50),
+	addr					varchar(50),
+	age						int,
+	email					varchar(100),
+	phone					varchar(13),
+	membership_acct	int NOT NULL references membership(acct),
 	primary key (id)
 )
 engine = InnoDB;
 
 create table theater
 (
-	number		int,
-	cinplex_id	varchar(32)
-				references cinplex(id),
-	cap			int,
-	seat_chart	varchar(16),
+	number			int,
+	cinplex_id		varchar(32) references cinplex(id),
+	cap				int,
+	seat_chart		varchar(16),
 
 	primary key	(number, cinplex_id)
 )
@@ -74,35 +71,25 @@ engine = InnoDB;
 
 create table seat
 (
-	row			varchar(2),
-	col			int,
-	theater_num	int
-				references theater(number),
-	cinplex_id	varchar(32)
-				references cinplex(id),
-	reserved	bool,
-	reserv_id	int
-				references reservation(id),
+	row						int,
+	col						int,
+	theater_number		int references theater(number),
+	cinplex_id				varchar(32) references cinplex(id),
+	reserv_id				int references reservation(id),
 				
-	primary key (row, col, theater_num, cinplex_id, reserv_id)
+	primary key (row, col, theater_number, cinplex_id, reserv_id)
 )
 engine = InnoDB;
 
 create table reservation
 (
-	id 			int NOT NULL auto_increment,
-	cinplex		int
-				references cinplex(id),
-	theater_num	int
-				referneces theater(number),
-	movie_id	int
-				references movie(id)
-	time		datetime,
-	charge		dec(6, 2),
-	member_id	int
-				references member(id),
-	acct 		varchar(16)
-				references membership(acct),
+	id 				int NOT NULL auto_increment,
+	cinplex			varchar(32),
+	theater			int,
+	movie			varchar(32),
+	date_time  			datetime,
+	member_id	int references member(id),
+	acct 				varchar(16) references membership(acct),
 				
 	primary key (id,member_id, acct)
 )
@@ -110,8 +97,7 @@ engine = InnoDB;
 
 create table res_seat_assignments
 (
-	reserv_id 	int
-				references reservation(id),
+	reserv_id 	int references reservation(id),
 	seat_no		varchar(16),
 
 	primary key(reserv_id, seat_no)
@@ -120,12 +106,9 @@ engine = InnoDB;
 
 create table watch
 (
-	member_id	int
-				references member(id),
-	acct 		varchar(16)
-				references membership(acct),
-	movie_id	int
-				references movie(id),
+	member_id	int references member(id),
+	acct 				varchar(16) references membership(acct),
+	movie_id		int references movie(id),
 				
 	primary key(member_id, acct, movie_id)
 )
@@ -133,13 +116,10 @@ engine = InnoDB;
 
 create table play
 (
-	t_num		int
-				references theater(number),
-	cinplex_id	varchar(32)
-				references cinplex(id),
+	t_num		int references theater(number),
+	cinplex_id	varchar(32) references cinplex(id),
 	showtime	datetime,
-	movie_id	int
-				references movie(id),
+	movie_id	int references movie(id),
 	
 	primary key(t_num, cinplex_id, showtime, movie_id)
 )

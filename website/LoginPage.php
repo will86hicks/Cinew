@@ -18,14 +18,14 @@ Create Account
 
 <form action="LoginPagePHP.php" method="POST">
 <?php
-    $IDQuery = mysql_query("SELECT acct,f_name,l_name FROM member") or die(mysql_error());
+    $IDQuery = mysql_query("SELECT id,f_name,l_name FROM member") or die(mysql_error());
 ?>
 LOGIN ID:
 <select name="ID">
 	<optgroup label="Users">
 <?php
 	while($row = mysql_fetch_array($IDQuery)){
-		echo "<option value='{$row['acct']}'>ID: {$row['acct']} Name: {$row['f_name']} {$row['l_name']}</option>" ;
+		echo "<option value='{$row['id']}'>ID: {$row['id']} Name: {$row['f_name']} {$row['l_name']}</option>" ;
 	}
 ?>
 	<optgroup label="Guest">

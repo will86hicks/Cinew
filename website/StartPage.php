@@ -42,6 +42,12 @@ Welcome!
 	width: 150px;
 	height: 80px
 }
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
+}
 </head>
 </style>
 
@@ -54,18 +60,8 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
-		<button class='button1' type='submit'>View History</button>
-		</form>";
-		
-		echo 
-		"<form action='addDependent.php'>
-		<button class='button1' type='submit'>Add Dependent</button>
-		</form>";
-		
-		echo 
-		"<form action=''>
-		<button class='button1' type='submit'>Seating Reservation</button>
+		"<form action='AdminPanelForm.php'>
+		<button class='button4' type='submit'>Admin Panel</button>
 		</form>";
 		
 		echo 
@@ -92,21 +88,6 @@ Welcome!
 		
 		echo 
 		"<form action=''>
-		<button class='button1' type='submit'>View History</button>
-		</form>";
-		
-		echo 
-		"<form action='addDependent.php'>
-		<button class='button1' type='submit'>Add Dependent</button>
-		</form>";
-		
-		echo 
-		"<form action=''>
-		<button class='button1' type='submit'>Seating Reservation</button>
-		</form>";
-		
-		echo 
-		"<form action=''>
 		<button class='button3' type='submit'>Schedule Movie</button>
 		</form>";
 	}
@@ -117,7 +98,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='MovieHistory.php'>
 		<button class='button1' type='submit'>View History</button>
 		</form>";
 		
@@ -127,7 +108,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='SeatResForm.php'>
 		<button class='button1' type='submit'>Seating Reservation</button>
 		</form>";
 	}
