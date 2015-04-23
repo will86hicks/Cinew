@@ -113,7 +113,7 @@ create table watch
 	acct 				varchar(16) references membership(acct),
 	movie_id		int references movie(id),
 				
-	primary key(f_name, l_name, email, acct, movie_id)
+	primary key(member_id, acct, movie_id)
 )
 engine = InnoDB;
 
