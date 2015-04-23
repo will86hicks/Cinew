@@ -98,7 +98,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='MovieHistory.php'>
 		<button class='button1' type='submit'>View History</button>
 		</form>";
 		

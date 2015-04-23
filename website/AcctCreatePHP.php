@@ -45,13 +45,13 @@ $sql = "INSERT INTO membership".
 	   
 $query = mysql_query($sql) or die(mysql_error());
 
-//$IDNumQuery = mysql_query("select acct from membership M where M.prim_member = '{$ID}'") or die(mysql_error());
-//$row = mysql_fetch_array($acctNumQuery);
+$membershipNum = mysql_query("select count(*) as num from membership") or die(mysql_error());
+$row = mysql_fetch_array($membershipNum);
 
 //create a new member
 $sql = "INSERT INTO member".
-       "(f_name,l_name,addr,age,email,phone) ".
-       "VALUES('$fname','$lname','$addr','$age','$email','$phone')";
+       "(f_name,l_name,addr,age,email,phone,'membership_acct') ".
+       "VALUES('$fname','$lname','$addr','$age','$email','$phone','{$row['num']}')";
 	   
 $query = mysql_query($sql) or die(mysql_error());
 ?>

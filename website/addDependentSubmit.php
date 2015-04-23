@@ -1,5 +1,9 @@
 <?php
-include 'login.php'
+include 'login.php';
+echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
+echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
+$user = $_SESSION["user"];
+$ID = $_SESSION["ID"];
 ?>
 
 
@@ -21,35 +25,15 @@ $email = $_POST['usremail'];
 $addr = $_POST['address'] ." " .$_POST['city'] ."," .$_POST['state'];
 $phone = $_POST['phone'];
 $age = $_POST['age'];
-$monthsOfMembership = $_POST['months'];
 
-//Default start date will be 2015-01-01
-$start_date = $_SESSION["today_date"];
-if($monthsOfMembership == 12){
-	$end_date = "2016-01-01";
-}else{
-	$month = 1+ $monthsOfMembership;
-	if($month < 10){
-		$end_date = "2015-0$month-01";
-	}else{
-		$end_date = "2015-$month-01";
-	}
-}
-
-$ID = $_SESSION["ID"];
-$sql = "INSERT INTO membership".
-       "(prim_member,start_date,end_date) ".
-       "VALUES('$ID','$start_date','$end_date')";
-	   
-$query = mysql_query($sql) or die(mysql_error());
-
-//$IDNumQuery = mysql_query("select acct from membership M where M.prim_member = '{$ID}'") or die(mysql_error());
-//$row = mysql_fetch_array($acctNumQuery);
+//find the membershipAcctnum
+$membershipAcctQuery = mysql_query("select acct from membership where acct = '{$ID}'") or die(mysql_error());
+$row = mysql_fetch_array($membershipAcctQuery);
 
 //create a new member
 $sql = "INSERT INTO member".
-       "(f_name,l_name,addr,age,email,phone) ".
-       "VALUES('$fname','$lname','$addr','$age','$email','$phone')";
+       "(f_name,l_name,addr,age,email,phone,membership_acct) ".
+       "VALUES('$fname','$lname','$addr','$age','$email','$phone','{$row['acct']}')";
 	   
 $query = mysql_query($sql) or die(mysql_error());
 ?>
