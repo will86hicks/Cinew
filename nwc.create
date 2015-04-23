@@ -76,7 +76,7 @@ create table seat
 (
 	row			varchar(2),
 	col			int,
-	number		int
+	theater_num	int
 				references theater(number),
 	cinplex_id	varchar(32)
 				references cinplex(id),
@@ -84,18 +84,20 @@ create table seat
 	reserv_id	int
 				references reservation(id),
 				
-	primary key (row, col, number, cinplex_id, reserv_id)
+	primary key (row, col, theater_num, cinplex_id, reserv_id)
 )
 engine = InnoDB;
 
 create table reservation
 (
 	id 			int NOT NULL auto_increment,
-	cinplex		varchar(32),
-	theater		int,
-	movie		varchar(32),
-	date  		date,
-	time		time,
+	cinplex		int
+				references cinplex(id),
+	theater_num	int
+				referneces theater(number),
+	movie_id	int
+				references movie(id)
+	time		datetime,
 	charge		dec(6, 2),
 	member_id	int
 				references member(id),
