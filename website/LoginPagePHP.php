@@ -30,10 +30,11 @@ else if($ID == "Employee"){
 	$_SESSION["user"] = "Employee";
 }
 else{
-	$IDQuery = mysql_query("SELECT * FROM member M where {$ID} = M.acct") or die(mysql_error());
+	$IDQuery = mysql_query("SELECT * FROM member M where {$ID} = M.id") or die(mysql_error());
 	while($row = mysql_fetch_array($IDQuery)){
 		echo"<h1>Login Successful as {$row['f_name']} {$row['l_name']}</h1>";
 		$_SESSION["user"] = "{$row['f_name']} {$row['l_name']}";
+		$_SESSION["ID"] = $ID;
 	}
 }
 
