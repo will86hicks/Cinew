@@ -108,7 +108,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='SeatResForm.php'>
 		<button class='button1' type='submit'>Seating Reservation</button>
 		</form>";
 	}

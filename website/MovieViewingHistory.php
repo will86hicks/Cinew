@@ -1,5 +1,8 @@
 <?php
-include 'login.php'
+include 'login.php';
+echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
+echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
+$user = $_SESSION["user"];
 ?>
 
 
@@ -8,7 +11,7 @@ include 'login.php'
 
 <head>
 <title> 
-Movie Viewage History
+Movie Viewing History
 </title>
 </head>
 
@@ -20,10 +23,24 @@ table, th, td {
 }
 th, td {
     padding: 5px;
-    text-align: left;
+    text-align: center;
+	font-size: 24px;
 }
 caption{
-	font-size: 48px
+	font-size: 36px
+}
+
+.left{
+	padding: 5px;
+    text-align: left;
+	font-size: 24px;
+}
+
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
 }
 </style>
 </head>
@@ -35,18 +52,35 @@ caption{
 	if($selectedThis != "allMembers"){
 		$ID = $selectedThis;
 		//find the membershipAcctnum
-		$membershipAcctQuery = mysql_query("select acct from membership where acct = '{$ID}'") or die(mysql_error());
-		$row = mysql_fetch_array($membershipAcctQuery);
-		
+		$movieIDS = mysql_query("select title from watch W,movie M where W.member_id = '{$ID}' AND W.movie_id = M.id order by title") or die(mysql_error());
+		echo
+		"<table style='width:25%'>
+			<caption><b>{$user}'s History</b></caption>
+			<tr>
+				<th>Viewed Movies</th>
+			</tr>";
+		while($row = mysql_fetch_array($movieIDS)){
+			echo
+				"<tr>
+					<th class='left'><li>{$row['title']}</li></th>
+				<tr>";
+		}
+		echo"</table>";
 		
 	}else{
-		echo"all";
+			$ID = $_SESSION['ID'];
+			$currentMembership = mysql_query("select acct from membership where prim_member = {$ID}") or die(mysql_error());
+			$currentMembership = mysql_fetch_array($currentMembership);
+			
+			$membersOnMembership = mysql_fetch_array($currentMembership);
+			echo"{$currentMembership['acct']}";
+			//$members = mysql_query("select id from ") or die(mysql_error());
 	}
 ?>
 
-<form action="" method="POST">
+<form action="MovieHistory.php">
 <h3>Go Back</h3>
-<button>BACK</button>
+<button class="button2">BACK</button>
 </form>
 
 </div>

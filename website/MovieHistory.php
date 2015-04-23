@@ -11,7 +11,7 @@ $ID = $_SESSION["ID"];
 <div align="center">
 <head>
 <title> 
-Movie Viewage History
+Movie Viewing History
 </title>
 </head>
 
@@ -39,13 +39,13 @@ select{
 </head>
 
 
-<h1>MOVIE VIEWAGE HISTORY</h1>
+<h1><u>MOVIE VIEWING HISTORY</u></h1>
 <br><br>
 <form action="MovieViewingHistory.php" method="POST">
 
-<h3>Select Account or current Membership:</h3><br>
+<h3>Select All Members or Current Member:</h3><br>
 <select name="chosenSelection">
-    <option value="allMembers">All members</option>
+    <option value="allMembers">All Members on Account</option>
 <?php
 	echo"<option value='{$ID}'>{$user}</option>";
 ?>

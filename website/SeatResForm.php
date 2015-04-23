@@ -49,11 +49,12 @@ caption{
 				<th>Showtime</th>
 				<th>Reserve</th>
 			</tr>";
-			$movieResult = mysql_query("select * from play P,cinplex C where P.addr = C.addr;") or die(mysql_error());
+			$movieResult = mysql_query("select Distinct M.title,P.t_num,P.showtime,C.addr from cinplex C, play P,movie M where P.cinplex_id = {$row['id']} AND M.id = P.movie_id") or die(mysql_error());
+			
 			while($row = mysql_fetch_array($movieResult)){
 				if($row['addr'] == $cinplexAddr){
-					echo "<caption>{$row['name']}</caption>
-					<tr>
+					echo
+					"<tr>
 						<th>{$row['title']}</th>
 						<th>{$row['t_num']}</th>
 						<th>{$row['showtime']}</th>
@@ -75,7 +76,7 @@ caption{
 ?>
 <br><br><br>
 
-<form action="SeatResDisplay.php" method="POST">
+<form action="StartPage.php">
 <button type="submit">Back</button>
 </form>
 
