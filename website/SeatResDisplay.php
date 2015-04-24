@@ -5,26 +5,20 @@ include 'login.php'
 <body style="background-color:lightgrey">
 
 <head>
-<title> 
-Reservations
-</title>
-</head>
-
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    text-align: center;
-}
+	<title> Reservations</title>
+	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
+				th, td {padding: 5px;text-align: center;}
+			
 caption{
 	border: 1px solid black;
 	font-size: 30;
 }
 </style>
+
+</head>
+
+<head>
+
 </head>
 
 <?php

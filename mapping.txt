@@ -8,12 +8,9 @@ MEMBER(Member_ID[pk],Address,Age,Phone_Number,Membership_Account_Number[pk,fk])
 
 THEATER(Theater_Number[pk],Cinema_Complex_ID[pk,fk],Capacity,Seating_Chart)
 
-SEAT(Column_Number[pk],Row_Number[pk],Theater_Number[pk,fk],Cinema_Complex_ID[pk,fk],Reservation_ID[fk],Member_ID[fk],Membership_Account_Number[fk])
-
-RESERVATION(Reservation_ID[pk],Date_Time,Complex,Theater,Movie,Member_ID[pk,fk],Membership_Account_Number[pk,fk])
+SEAT(Row_Number[pk],Column_Number[pk],Theater_Number[pk,fk],Cinema_Complex_ID[pk,fk], Show_time[pk],Movie_ID[pk,fk],Member_ID[pk,fk], Membership_Account_Number[pk,fk])
 
 PLAY(Cinema_Complex_ID[pk,fk],Theater_Number[pk,fk],Movie_ID[pk,fk],Show_Time[pk])
 
 WATCH(Member_ID[pk,fk],Membership_Account_Number[pk,fk],Movie_ID[pk,fk])
 
-RESERVATION_SEAT_ASSIGNMENTS(Seat_Assignments[pk],Reservation_ID[pk,fk],Member_ID[pk,fk],Membership_Account_Number[pk,fk])

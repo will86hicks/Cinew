@@ -70,7 +70,7 @@ Admin Panel
 		</form>
 		
 		<form action='' class='form1'>
-		<button class='button4' type='submit'>Add to Seats</button>
+		<button class='button4' type='submit'>Add to Reserved Seats</button>
 		</form>
 		
 		<form action='' class='form1'>
@@ -97,7 +97,7 @@ Admin Panel
 		</form>
 		
 		<form action='' class='form1'>
-		<button class='button4' type='submit'>Delete From Seats</button>
+		<button class='button4' type='submit'>Delete From Reserved Seats</button>
 		</form>
 		
 		<form action='' class='form1'>
