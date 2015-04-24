@@ -30,29 +30,52 @@ caption{
 <?php
 
 	$allResult = mysql_query("SELECT * FROM cinplex") or die(mysql_error());
+	
 	$seatingArrang = array();
 ?>
 
 <?php
 	// Access form variables
 	$cinema = $_POST['complex'];
+	$cinemaID = $_POST['cinplexID'];
 	$title = $_POST['title'];
+	$theater = $_POST['theater'];
+	
+	$seatchart = mysql_query("SELECT seat_chart FROM theater t where t.cinplex_id = {$cinemaID} and t.number = {$theater}") or die(mysql_error());
+	$seatchart = mysql_fetch_array($seatchart);
+	$seatchart = $seatchart['seat_chart'];
+	$seatchart = explode("x",$seatchart);
+	
+	$numRows = $seatchart[0];
+	$numCols = $seatchart[1];
+	
+	//echo $numCols;
+
+	
 	if($cinema != "all"){
 		echo
 		"<table style='width:50%'>
 			<caption>{$title} at the {$cinema}</caption>
 			<tr>
-				<th></th>
-				<th>Column-1</th>
-				<th>Column-2</th>
-				<th>Column-3</th>
-			</tr>
-			<tr>
-				<th>Row-1</th>
-				<th><input type='button' value='Reserve Seat' style='height:50px; width:100px'/> </th>
-				<th><input type='button' value='Reserve Seat' style='height:50px; width:100px'/> </th>
-				<th><input type='button' value='Reserve Seat' style='height:50px; width:100px'/> </th>
-			</tr>";
+			<th></th>";
+		
+	
+	
+		for($i = 1; $i <= $numCols; $i++){
+			echo "<th>Column-{$i}</th>";
+		};
+		
+	
+		echo
+			"</tr>";
+		for($j = 1; $j <= $numRows; $j++){
+			echo "<tr><th>Row-{$j}</th>";
+			
+			for($k = 1; $k <= $numCols; $k++){				
+				echo "<th><input type='button' value='Reserve\n Seat' style='height:50px; width:75px'/> </th>";
+			};
+			echo "</tr>";
+		};
 		echo"</table>";
 	}else{
 		echo"all";
