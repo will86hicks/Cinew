@@ -46,12 +46,12 @@ replace
 into table reservation
 fields terminated by ',';
 #
-select 'Loading data into seat table';
-delete from seat;
+select 'Loading data into res_seat table';
+delete from res_seat;
 show warnings;
-load data local infile 'seat.data' 
+load data local infile 'res_seat.data' 
 replace
-into table seat
+into table res_seat
 fields terminated by ',';
 #
 select 'Loading data into res_seat_assignments table';
