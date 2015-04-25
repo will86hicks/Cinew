@@ -31,22 +31,20 @@ caption{
 <?php
 	// Access form variables
 	$cinema = $_POST['complex'];
-	$cinemaID = $_POST['cinplexID'];
+	$cinplexID = $_POST['cinplexID'];
 	$title = $_POST['title'];
 	$theater = $_POST['theater'];
+	$showtime = $_POST['showtime'];
 	
-	$seatchart = mysql_query("SELECT seat_chart FROM theater t where t.cinplex_id = {$cinemaID} and t.number = {$theater}") or die(mysql_error());
+	$seatchart = mysql_query("SELECT seat_chart FROM theater t where t.cinplex_id = {$cinplexID} and t.number = {$theater}") or die(mysql_error());
 	$seatchart = mysql_fetch_array($seatchart);
 	$seatchart = $seatchart['seat_chart'];
 	$seatchart = explode("x",$seatchart);
 	
 	$numRows = $seatchart[0];
 	$numCols = $seatchart[1];
+		
 	
-	//echo $numCols;
-
-	
-	if($cinema != "all"){
 		echo
 		"<table style='width:50%'>
 			<caption>{$title} at the {$cinema}</caption>
@@ -65,15 +63,23 @@ caption{
 		for($j = 1; $j <= $numRows; $j++){
 			echo "<tr><th>Row-{$j}</th>";
 			
-			for($k = 1; $k <= $numCols; $k++){				
-				echo "<th><input type='button' value='Reserve\n Seat' style='height:50px; width:75px'/> </th>";
+
+			for($k = 1; $k <= $numCols; $k++){
+				 //$reservedSeat = mysql_query (" Return a reserved seat if $j and $k match a seat row and column for that theater
+				 // for that cinema, for that showtime");
+					//if($reservedSeat is NOT NULL){
+						//echo <th>< RESERVED </th>;
+					//}
+					//else{
+						echo "<th><input type='button' value='Reserve\n Seat' style='height:50px; width:75px'/> </th>";
+					//}
+					
+				
 			};
 			echo "</tr>";
 		};
 		echo"</table>";
-	}else{
-		echo"all";
-	}
+	
 ?>
 
 <div align="center">
