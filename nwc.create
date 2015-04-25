@@ -74,7 +74,7 @@ create table res_seat
 	row						int,
 	col						int,
 	theater_number		int references theater(number),
-	cinplex_id				varchar(32) references cinplex(id),
+	cinplex_id				int references cinplex(id),
 	show_time				datetime,
 	movie_id				int references movie(id),
 	member_id			int references member(id),
