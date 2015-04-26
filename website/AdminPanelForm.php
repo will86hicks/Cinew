@@ -54,6 +54,13 @@ Admin Panel
 	height: 80px
 }
 
+.button6{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
 </head>
 </style>
 
@@ -143,6 +150,12 @@ Admin Panel
 		<form action='AdminDeleteFromReservationSeatAssignments.php' class='form1'>
 		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
 		</form>";
+
+		echo"<form action='StartPage.php'>
+		<button class='button6' type='submit'>Back</button>
+		</form>";
+
+		
 	}
 	else{
 		echo"<h1>Invalid Access! Not an admin</h1>";
