@@ -45,8 +45,8 @@ Rating: <input type="input" name="rating" required id="rating" required placehol
 <br><br>
 Stars: <input type="input" name="stars" required id="stars" required placeholder="The Rok">
 <br><br>
-ID(unique): <input type="input" name="id" required id="id" required placeholder="1111">
-<br><br>
+<!--ID(unique): <input type="input" name="id" required id="id" required placeholder="1111">
+<br><br>-->
 
 </select-->
 <br><br>
