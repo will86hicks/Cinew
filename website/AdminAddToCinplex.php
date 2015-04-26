@@ -57,6 +57,7 @@ Admin Panel
 		Cinplex ID: <input type='text' name='id'><br>
 		<input type='submit'>
 		</form>";
+
 		
 		echo"<form action='StartPage.php'>
 		<button class='button2' type='submit'>Back</button>
