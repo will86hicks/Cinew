@@ -69,30 +69,26 @@ create table theater
 )
 engine = InnoDB;
 
-create table res_seat
+create table seat
 (
 	row						int,
 	col						int,
 	theater_number		int references theater(number),
-	cinplex_id				int references cinplex(id),
-	show_time				datetime,
-	movie_id				int references movie(id),
-	member_id			int references member(id),
-	acct						int references membership(acct),
-
+	cinplex_id				varchar(32) references cinplex(id),
+	reserv_id				int references reservation(id),
 				
-	primary key (row, col, theater_number, cinplex_id, show_time, member_id, acct)
+	primary key (row, col, theater_number, cinplex_id, reserv_id)
 )
 engine = InnoDB;
 
 create table reservation
 (
-	id 				int NOT NULL auto_increment,
-	cinplex			varchar(32),
+	id 					int NOT NULL auto_increment,
+	cinplex			int,
 	theater			int,
 	movie			varchar(32),
-	date_time  			datetime,
-	member_id	int references member(id),
+	date_time  		datetime,
+	member_id		int references member(id),
 	acct 				varchar(16) references membership(acct),
 				
 	primary key (id,member_id, acct)
