@@ -36,11 +36,13 @@ caption{
 ?>
 
 <?php
-	// Access form variables
+
 	//$cinema = $_POST['complexes'];
 		while($row = mysql_fetch_array($cinplexResult)){
 			$cinplexName = $row['name'];
 			$cinplexAddr = $row['addr'];
+			$cinplexID = $row['id'];
+			
 			echo"<table style='width:50%'>";
 			echo "<caption>{$cinplexName}</caption>
 			<tr>
@@ -62,6 +64,7 @@ caption{
 							<form action='SeatResDisplay.php' method='POST'>
 							<input type='hidden' value='{$cinplexName}' name='complex'/>
 							<input type='hidden' value='{$row['title']}' name='title'/>
+							<input type='hidden' value='{$cinplexID}' name='cinplexID'/>
 							<input type='hidden' value='{$row['t_num']}' name='theater'/>
 							<input type='hidden' value='{$row['showtime']}' name='showtime'/>
 							<input type='submit' value='Reserve' style='height:40px; width:100px'/>
