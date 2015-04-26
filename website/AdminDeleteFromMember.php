@@ -48,7 +48,7 @@ $allmembers = mysql_query("SELECT * FROM member");
 while($row = mysql_fetch_array($allmembers)){
 	echo "<tr> 
 				<th>
-					<form action= 'Admin_Result_DeleteFromMember.php' method= 'POST'><button type = 'submit' name = 'member_id' value = '{$row['id']}'>Delete Member</button></th>
+					<form action= 'AdminResult_DeleteFromMember.php' method= 'POST'><button type = 'submit' name = 'member_id' value = '{$row['id']}'>Delete Member</button></th>
 					
 				</th>
 				<th> {$row['id']}</th>
