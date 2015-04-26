@@ -31,7 +31,7 @@ $dependents = mysql_query("SELECT *
 			//If the member has any dependants, delete them too
 			if(mysql_num_rows($dependents) != 0){				
 				
-				if(mysql_query("DELETE FROM member WHERE id = {$acct}")){
+				if(mysql_query("DELETE FROM member WHERE membership_acct = {$acct}")){
 						echo "<p>Member had dependants associated with their account.  They have been deleted as well.</p>";
 				}
 				
