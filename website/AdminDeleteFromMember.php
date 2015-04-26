@@ -64,5 +64,14 @@ while($row = mysql_fetch_array($allmembers)){
 ?>
 
 </table>
+
+<br><br>
+
+<div style="text-align:center">
+	<form action = "AdminDeleteFromMember.php">
+		<button type = "submit" >BACK</button>
+	</form>
+</div>
+
 </body>
 </html>
