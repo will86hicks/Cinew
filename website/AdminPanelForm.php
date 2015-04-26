@@ -33,75 +33,109 @@ Admin Panel
 	width: 100px;
 	height: 50px
 }
-
 .button4{
 	background: orange;
 	font-size: 24px;
 	width: 150px;
 	height: 80px
 }
-
 .form1 {
    display:inline;
    margin:0;
    padding:0;
 }
+.button5{
+	background: orange;
+	font-size: 15px;
+	width: 150px;
+	height: 80px
+}
 </head>
 </style>
-
-
 <?php
 	if($user == "Admin"){
 		echo 
-		"<form action='' class='form1'>
+		"<form action='AdminAddToCinplex.php' class='form1'>
 		<button class='button4' type='submit'>Add to Cinplex</button>
 		</form>
 		
-		 <form action='' class='form1'>
+		 <form action='AdminAddToMember.php' class='form1'>
 		<button class='button4' type='submit'>Add to Member</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminAddToMembership.php' class='form1'>
+		<button class='button4' type='submit'>Add to Membership</button>
+		</form>
+		
+		<form action='AdminAddToMovie.php' class='form1'>
 		<button class='button4' type='submit'>Add to Movie</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminAddToReservation.php' class='form1'>
 		<button class='button4' type='submit'>Add to Reservation</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminAddToSeats.php' class='form1'>
 		<button class='button4' type='submit'>Add to Seats</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminAddToTheater.php' class='form1'>
 		<button class='button4' type='submit'>Add to Theater</button>
+		</form>
+		
+		<form action='AdminAddToWatch.php' class='form1'>
+		<button class='button4' type='submit'>Add to Watch</button>
+		</form>
+		
+		<form action='AdminAddToPlay.php' class='form1'>
+		<button class='button4' type='submit'>Add to Play Table</button>
+		</form>
+		
+		<form action='AdminAddToReservationSeatAssignments.php' class='form1'>
+		<button class='button5' type='submit'>Add to Reservation Seat Assignments</button>
 		</form>";
 		
 		echo "<h2><u>Delete from Database</u></h2>";
 		
 		echo 
-		"<form action='' class='form1'>
+		"<form action='AdminDeleteFromCinplex.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Cinplex</button>
 		</form>
 		
-		 <form action='' class='form1'>
+		 <form action='AdminDeleteFromMember.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Member</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminDeleteFromMembership.php' class='form1'>
+		<button class='button4' type='submit'>Delete From Membership</button>
+		</form>
+		
+		<form action='AdminDeleteFromMovie.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Movie</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminDeleteFromReservation.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Reservation</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminDeleteFromSeats.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Seats</button>
 		</form>
 		
-		<form action='' class='form1'>
+		<form action='AdminDeleteFromTheater.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Theater</button>
+		</form>
+		
+		<form action='AdminDeleteFromWatch.php' class='form1'>
+		<button class='button4' type='submit'>Delete From Watch</button>
+		</form>
+		
+		<form action='AdminDeleteFromPlay.php' class='form1'>
+		<button class='button4' type='submit'>Delete From Play Table</button>
+		</form>
+		
+		<form action='AdminDeleteFromReservationSeatAssignments.php' class='form1'>
+		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
 		</form>";
 	}
 	else{
@@ -112,7 +146,6 @@ Admin Panel
 		</form>";
 	}
 ?>
-
 </div>
 </body>
 </html>
