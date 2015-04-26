@@ -10,9 +10,9 @@ ini_set("display_errors", 1);
 //$database="cs4601_jjl8705";
 
 $host=""; 
-$user="wsh7290"
-$password="JLJiF3ts"
-$database="cs4601_wsh7290"
+$user="wsh7290";
+$password="JLJiF3ts";
+$database="cs4601_wsh7290";
 // Connect to the database
 $connect = mysql_connect($host,$user,$password);
 // Select the database

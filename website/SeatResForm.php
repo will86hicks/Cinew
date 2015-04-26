@@ -36,7 +36,7 @@ caption{
 ?>
 
 <?php
-	// Access form variables
+
 	//$cinema = $_POST['complexes'];
 		while($row = mysql_fetch_array($cinplexResult)){
 			$cinplexName = $row['name'];
