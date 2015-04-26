@@ -50,7 +50,7 @@ $row = mysql_fetch_array($membershipNum);
 
 //create a new member
 $sql = "INSERT INTO member".
-       "(f_name,l_name,addr,age,email,phone,'membership_acct') ".
+       "(f_name,l_name,addr,age,email,phone,membership_acct) ".
        "VALUES('$fname','$lname','$addr','$age','$email','$phone','{$row['num']}')";
 	   
 $query = mysql_query($sql) or die(mysql_error());
@@ -64,7 +64,7 @@ $query = mysql_query($sql) or die(mysql_error());
 
 <div align="center">
 <h3>Go to home page</h3>
-<form action="http://cmps460server.cacs.louisiana.edu/~jjl8705">
+<form action="StartPage.php">
 <button>HOME</button>
 </form>
 </div>
