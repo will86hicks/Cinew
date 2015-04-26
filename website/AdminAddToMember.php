@@ -62,10 +62,6 @@ Months of Membership:
 
 
 <h3>ADD NEW MEMBER TO EXISTING ACCOUNT</h3>
-<br>
-Existing Account Number:
-
-<br>
 
 <form action="AdminAddMemberToAcct.php" method="POST">
 <form action=autocomplete="on">
@@ -90,6 +86,7 @@ Age: <input type="number" name="age" id="ages" required placeholder="23">
 <br>
 
 <br><br>
+Existing Account Number:
 
 <!-- Display all the available accounts to add to -->
 <select name="account">

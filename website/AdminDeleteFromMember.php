@@ -48,7 +48,11 @@ $allmembers = mysql_query("SELECT * FROM member");
 while($row = mysql_fetch_array($allmembers)){
 	echo "<tr> 
 				<th>
-					<form action= 'AdminResult_DeleteFromMember.php' method= 'POST'><button type = 'submit' name = 'member_id' value = '{$row['id']}'>Delete Member</button></th>
+					<form action= 'AdminResult_DeleteFromMember.php' method= 'POST'>
+						<button type = 'submit'  value = '{$row['id']}' name = 'member_id'>Delete Member</button>
+						<input type='hidden' value= '{$row['membership_acct']}' name= 'acct'>
+					</form>
+				</th>
 					
 				</th>
 				<th> {$row['id']}</th>
@@ -68,7 +72,7 @@ while($row = mysql_fetch_array($allmembers)){
 <br><br>
 
 <div style="text-align:center">
-	<form action = "AdminDeleteFromMember.php">
+	<form action = "AdminPanelForm.php">
 		<button type = "submit" >BACK</button>
 	</form>
 </div>

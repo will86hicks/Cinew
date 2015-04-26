@@ -2,6 +2,10 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
+echo 
+	"<form action='logout.php'>
+	<div align='left'> <button class='button2'>LOG OUT</button> </div>
+	</form>";
 $user = $_SESSION["user"];
 ?>
 
@@ -35,17 +39,14 @@ $query = mysql_query($sql) or die(mysql_error());
 ?>
 
 <div align="center">
-<h1>MEMBER ADDED</h1>
-</div>
+<p style = "font0size:400%">MEMBER ADDED!</p>
 
-<br><br><br><br>
 
-<div align="center">
-<h3>Go Back to Admin Panel page</h3>
+<br><br><br>
+
 <form action="AdminPanelForm.php">
 <button>Admin Panel Page</button>
 </form>
-<h3>Add another member</h3>
 <form action="AdminAddToMember.php">
 <button>Add Another Member</button>
 </form>
