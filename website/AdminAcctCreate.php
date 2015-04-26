@@ -36,7 +36,7 @@ if($monthsOfMembership == 12){
 	}
 }
 
-mysql_query(select
+
 $prim_memberCount = mysql_query("select count(Distinct id) as num from member;") or die(mysql_error());
 $row = mysql_fetch_array($prim_memberCount);
 $primID = $row['num'] + 1;
@@ -74,5 +74,6 @@ $query = mysql_query($sql) or die(mysql_error());
 <button>Add Another Member</button>
 </form>
 </div>
+
 </body>
 </html>
