@@ -1,4 +1,10 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+
+<?php
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";

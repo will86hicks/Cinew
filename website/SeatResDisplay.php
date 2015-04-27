@@ -1,4 +1,9 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+<?php
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -95,16 +100,7 @@ caption{
 				else{
 					echo
 					"<th>
-						<form action='ReserveSeatPHP.php' method='POST'>
-						<input type='hidden' value='{$cinema}' name='cinema'/>
-						<input type='hidden' value='{$cinemaID}' name='cinemaID'/>
-						<input type='hidden' value='{$theater}' name='theaterID'/>
-						<input type='hidden' value='{$showtime}' name='showtime'/>
-						<input type='hidden' value='{$title}' name='movieTitle'/>
-						<input type='hidden' value='{$j}' name='row'/>
-						<input type='hidden' value='{$k}' name='column'/>
-						<input type='submit' value='Reserve\nSeat\n{$j}-{$k}' style='height:70px; width:75px'/>
-						</form>
+						<input type='checkbox' name='check_list[]' value='{$j}-{$k}'><br>Reserve Seat {$j}-{$k}<br>
 					</th>";
 				}
 			}

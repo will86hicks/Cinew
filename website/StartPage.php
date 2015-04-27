@@ -1,4 +1,11 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+
+
+<?php
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -18,7 +25,7 @@ Welcome!
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <div align="center">
 <h1>Babadook Database</h1>
 
@@ -87,7 +94,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='EmployeeScheduleMovieForm.php'>
 		<button class='button3' type='submit'>Schedule Movie</button>
 		</form>";
 	}

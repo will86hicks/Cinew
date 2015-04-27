@@ -1,4 +1,10 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+
+<?php
 include 'login.php';
 ?>
 
@@ -11,9 +17,26 @@ Create Account
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <h3>CREATE ACCOUNT</h3>
 <br>
+
+<head>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+</head>
+</style>
 
 <form action="AcctCreatePHP.php" method="POST">
 <form action=autocomplete="on">
@@ -57,22 +80,13 @@ Months of Membership:
 ?>
 <div align="center">
 <p><b>The membership fee is $30 per month per person.</b></p>
-<!--Select a member<br>
-<select name="members" multiple>
-	<option value="None">None</option>
-<?php
-	//while($row = mysql_fetch_array($result)){
-		//echo "<option value='{$row['f_name']} {$row['l_name']}'>{$row['f_name']} {$row['l_name']}</option>" ;
-	//}
-?>
-</select-->
 <br><br>
-<button type="submit">CREATE ACCOUNT</button>
+<button type="submit" class="button1">CREATE ACCOUNT</button>
 </form>
 </form>
 <br><br>
 <form action="LoginPage.php">
-<button type="submit">Back</button>
+<button type="submit" class="button2">Back</button>
 </form>
 </div>
 </body>
