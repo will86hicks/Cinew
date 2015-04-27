@@ -18,54 +18,58 @@ echo
 <style> table, th, td {border: 1px solid black; border-collapse: collapse;}
 				th, td {padding: 5px;text-align: center;}
 			
-caption{
-	border: 1px solid black;
-	font-size: 30;
-}
+			caption{
+				border: 1px solid black;
+				font-size: 30;
+				}
 </style>
 </head>
 
 <table style='width:50%'>
-			<caption>ALL MEMBERS</caption>
+			<caption>ALL RESERVATIONS</caption>
 			<tr>
 				<th> </th>
-				<th> id </th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Address</th>
-				<th>Age</th>
-				<th>Email</th>
-				<th>Phone Number</th>
-				<th> Account Number</th>
+				<th> Reservation Id</th>
+				<th>Cineplex Id</th>
+				<th>Theater</th>
+				<th>Movie</th>
+				<th>Showtime</th>
+				<th>Member Id</th>
+				<th>Account Id</th>
 			
 			</tr>
 			
 
 
 <?php
-$allmembers = mysql_query("SELECT * FROM member");
+$allReservations= mysql_query("SELECT * FROM reservation");
 
-while($row = mysql_fetch_array($allmembers)){
+//goes in the while loop    <!--<input type='hidden' value= '{$row['membership_acct']}' name= 'acct'> -->
+while($row = mysql_fetch_array($allReservations)){
 	echo "<tr> 
 				<th>
-					<form action= 'AdminResult_DeleteFromMember.php' method= 'POST'>
-						<button type = 'submit'  value = '{$row['id']}' name = 'member_id'>Delete Member</button>
-						<input type='hidden' value= '{$row['membership_acct']}' name= 'acct'>
+					<form action= 'AdminResult_DeleteFromReservation.php' method= 'POST'>
+						<button type = 'submit'  value = '{$row['id']}' name = 'res_id'>Delete Reservation</button>
+						
 					</form>
 				</th>
 					
 				</th>
 				<th> {$row['id']}</th>
-				<th> {$row['f_name']}</th>
-				<th> {$row['l_name']}</th>
-				<th> {$row['addr']}</th>
-				<th> {$row['age']}</th>
-				<th> {$row['email']}</th>
-				<th> {$row['phone']}</th>
-				<th> {$row['membership_acct']}</th>
+				<th> {$row['cinplex']}</th>
+				<th> {$row['theater']}</th>
+				<th> {$row['movie']}</th>
+				<th> {$row['date_time']}</th>
+				<th> {$row['member_id']}</th>
+				<th> {$row['acct']}</th>
+
 			</tr>";
 }
 ?>
+
+</table>
+
+<br><br>
 
 <!--Back Button-->
 <form action="AdminPanelForm.php" method="POST">
