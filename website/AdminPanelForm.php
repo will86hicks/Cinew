@@ -1,4 +1,7 @@
 <?php
+//Author: Adam R. Mitchell (arm8759)
+//Date: 4-26-2015
+//Certification: I certify that everything in here is my own work with the assistants of my group members.
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -53,6 +56,7 @@ Admin Panel
 </head>
 </style>
 <?php
+	//lists the tables you can add to in a row
 	if($user == "Admin"){
 		echo 
 		"<form action='AdminAddToCinplex.php' class='form1'>
@@ -97,6 +101,7 @@ Admin Panel
 		
 		echo "<h2><u>Delete from Database</u></h2>";
 		
+		//lists the tables you can delete in a row.
 		echo 
 		"<form action='AdminDeleteFromCinplex.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Cinplex</button>
@@ -138,13 +143,13 @@ Admin Panel
 		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
 		</form>";
 	}
-	else{
-		echo"<h1>Invalid Access! Not an admin</h1>";
-		echo 
-		"<form action='StartPage.php'>
+?>
+<?php
+	//back button that shows up regardless
+	echo 
+		"<br><form action='StartPage.php'>
 		<button class='button2' type='submit'>Back</button>
 		</form>";
-	}
 ?>
 </div>
 </body>
