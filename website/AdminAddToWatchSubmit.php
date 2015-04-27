@@ -42,8 +42,6 @@ caption{
 								WHERE M.id = {$member}") or die(mysql_error());
 	$account = mysql_fetch_array($account);
 	$accountID = $account[0];
-	echo "{$accountID}";
-	
 	
 	$watchResult = mysql_query("SELECT W.member_id 
 									FROM movie M, member MBR, watch W
@@ -60,7 +58,10 @@ caption{
 	   
 		$query = mysql_query($sql) or die(mysql_error()); 
 		echo"<div align=center><h2>Watched Movie Added</h2>";
- } 
+	}
+	else {
+		echo"<div align=center><h2>Member has already watched this movie</h2>";
+	}
 ?>
 
 <form action="AdminPanelForm.php" method="POST">
