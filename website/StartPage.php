@@ -106,11 +106,6 @@ Welcome!
 		"<form action='addDependent.php'>
 		<button class='button1' type='submit'>Add Dependent</button>
 		</form>";
-		
-		echo 
-		"<form action='SeatResForm.php'>
-		<button class='button1' type='submit'>Seating Reservation</button>
-		</form>";
 	}
 ?>
 

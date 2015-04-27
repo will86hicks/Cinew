@@ -52,13 +52,11 @@ caption{
 	$seatchart = mysql_fetch_array($seatchart);
 	$seatchart = $seatchart['seat_chart'];
 	$seatchart = explode("x",$seatchart);
-	
-	//$numRows = $seatchart[0];
-	//$numCols = $seatchart[1];
-	
+
 	$numCols = $seatchart[0];
 	$numRows = $seatchart[1];
 	
+	echo"<form action='ReserveSeatPHP.php' method='POST'>";
 	echo
 	"<table style='width:50%'>
 		<caption>{$title} at the {$cinema}</caption>
@@ -73,7 +71,6 @@ caption{
 	echo
 		"</tr>";
 		
-	echo"Cinema:{$cinemaID}		Theater:{$theater}		movie:{$title}		showtime:{$showtime}";
 	for($j = 1; $j <= $numRows; $j++){
 		echo "<tr><th>Row-{$j}</th>";
 		for($k = 1; $k <= $numCols; $k++){
@@ -82,9 +79,7 @@ caption{
 			if($isReserve == null){
 				echo
 				"<th>
-						<form action='ReserveSeatPHP.php' method='POST'>
-						<input type='button' value='Reserve\nSeat\n{$j}-{$k}' style='height:70px; width:75px'/>
-						</form>
+						<input type='checkbox' name='check_list[]' value='{$j}-{$k}'><br>Reserve Seat {$j}-{$k}<br>
 				</th>";
 			}else{
 				$isReserve = $isReserve['seat_no'];
@@ -101,7 +96,14 @@ caption{
 					echo
 					"<th>
 						<form action='ReserveSeatPHP.php' method='POST'>
-						<input type='button' value='Reserve\nSeat\n{$j}-{$k}' style='height:70px; width:75px'/>
+						<input type='hidden' value='{$cinema}' name='cinema'/>
+						<input type='hidden' value='{$cinemaID}' name='cinemaID'/>
+						<input type='hidden' value='{$theater}' name='theaterID'/>
+						<input type='hidden' value='{$showtime}' name='showtime'/>
+						<input type='hidden' value='{$title}' name='movieTitle'/>
+						<input type='hidden' value='{$j}' name='row'/>
+						<input type='hidden' value='{$k}' name='column'/>
+						<input type='submit' value='Reserve\nSeat\n{$j}-{$k}' style='height:70px; width:75px'/>
 						</form>
 					</th>";
 				}
@@ -109,7 +111,14 @@ caption{
 		}
 		echo "</tr>";
 	}
-	echo"</table>";
+	echo"</table>
+	<input type='hidden' value='{$cinema}' name='cinema'/>
+	<input type='hidden' value='{$cinemaID}' name='cinemaID'/>
+	<input type='hidden' value='{$theater}' name='theaterID'/>
+	<input type='hidden' value='{$showtime}' name='showtime'/>
+	<input type='hidden' value='{$title}' name='movieTitle'/>
+	<button>Submit</button>
+	</form>";
 ?>
 
 <?php
