@@ -1,4 +1,6 @@
 <?php
+// Jarred A Wynan - jaw4848
+
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";

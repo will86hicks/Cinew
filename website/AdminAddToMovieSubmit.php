@@ -1,4 +1,6 @@
 <?php
+// Jarred A Wynan - jaw4848
+
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -30,8 +32,8 @@ $stars = $_POST['stars'];
 echo "<p>$movieTitle</p>";
 $movieQuery = mysql_query("SELECT * 
 							FROM movie M
-    						WHERE M.title = '{$movieTitle}'") or die(mysql_error()); //"AND
-								  //M.descr = '{$description}'") or die(mysql_error());
+    						WHERE M.title = '{$movieTitle}' AND
+								  M.descr = '{$description}'") or die(mysql_error());
 
 
 if (mysql_num_rows($movieQuery) != 0){
