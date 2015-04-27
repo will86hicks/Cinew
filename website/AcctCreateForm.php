@@ -17,9 +17,11 @@ Create Account
 </title>
 </head>
 
+<div align="center">
 <body style="background-color:darkgrey">
-<h3>CREATE ACCOUNT</h3>
+<h1>CREATE ACCOUNT</h1>
 <br>
+</div>
 
 <head>
 <style>
@@ -35,31 +37,35 @@ Create Account
 	width: 100px;
 	height: 50px
 }
+.background{
+	font-size: 24px;
+	background: lightblue;
+}
 </head>
 </style>
 
 <form action="AcctCreatePHP.php" method="POST">
 <form action=autocomplete="on">
-E-mail: <input type="email" name="usremail" placeholder="bob@something.com" required id ="email">
+<font size="5"><b>E-mail: </b><input type="email" name="usremail" placeholder="bob@something.com" required id ="email" class="background">
 <br><br>
-First Name: <input type="input" name="fname" required id="fname" required placeholder="BOB">
+<font size="5"><b>First Name: </b><input type="input" name="fname" required id="fname" required placeholder="BOB" class="background">
 <br><br>
-Last Name: <input type="input" name="lname" required id="lname" required placeholder="BOBERSON">
+<b>Last Name: </b><input type="input" name="lname" required id="lname" required placeholder="BOBERSON" class="background">
 <br><br>
 
-Address Line: <input type="input" name="address" id="address" required placeholder="1234 Rainbow Road">
-City: <input type="input" name="city" id="city" required placeholder="Mario Kart">
-State: <input type="input" name="state" id="state" required size="1"  placeholder="SNES" >
-ZipCode: <input type="input" name="zip"  id="zip"  size="5"  placeholder="70765" minlength="5" maxlength="5">
+<b>Address Line: </b><input type="input" name="address" id="address" required placeholder="1234 Rainbow Road" class="background">
+<b>City: </b><input type="input" name="city" id="city" required placeholder="Mario Kart" class="background">
+<b>State: </b><input type="input" name="state" id="state" required size="1"  placeholder="LA" class="background">
+<b>ZipCode: </b><input type="input" name="zip"  id="zip"  size="5"  placeholder="70765" minlength="5" maxlength="5" class="background">
 <br><br>
-Phone Number: <input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum"required>
+<b>Phone Number: </b><input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum"required class="background">
 
-Age: <input type="number" name="age" id="ages" required placeholder="23">
+<b>Age: </b><input type="number" name="age" id="ages" required placeholder="23" class="background"></font>
 <br>
 
 <br><br>
-Months of Membership:
-<select name="months">
+<b>Months of Membership:</b>
+<select name="months" class="background">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>

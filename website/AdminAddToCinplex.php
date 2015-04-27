@@ -2,6 +2,7 @@
 //Author: Adam R. Mitchell (arm8759)
 //Date: 4-26-2015
 //Certification: I certify that everything in here is my own work with the assistants of my group members.
+
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -41,6 +42,13 @@ Admin Panel
 	height: 80px
 }
 
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
 .form1 {
    display:inline;
    margin:0;
@@ -65,9 +73,9 @@ caption{
 	if($user == "Admin"){
 		//Display the name of each field that needs to be field out
 		echo"<form action='' method='post'>
-		Cinplex Name: <input type='text' name='name'><br>
-		Cinplex Addr: <input type='text' name='addr'><br>
-		Cinplex Phone #: <input type='text' name='phone'><br>
+		Cinplex Name:<br><input type='text' name='name' placeholder='Tasty Cupcakes'><br>
+		Cinplex Addr:<br><input type='text' name='addr' placeholder='1234 Seeya Drive'><br>
+		Cinplex Phone Number:<br><input type='text' name='phone' placeholder='(123)456-7890'><br><br>
 		<input align='center' type='submit' name='cinplex_button' value='Add this Cinplex'></form>";
 		
 		//if the 'Add this Cinplex' button gets pressed, insert all this information into the database
@@ -86,10 +94,10 @@ caption{
 			}
 		}
 		//a back button to go to previous page
-		echo 
+		/*echo 
 		"<br><form action='AdminPanelForm.php'>
 		<button class='button2' type='submit'>Back</button>
-		</form>";
+		</form>";*/
 	}
 	else{
 		//if the user trying to access this page isn't an admin, display this message and give them
@@ -101,6 +109,7 @@ caption{
 		</form>";
 	}
 ?>
+
 <br><br>
 <h1><u>Remove Existing Cinplexes: </u></h1>
 
@@ -119,7 +128,7 @@ while($row = mysql_fetch_array($allcinplexes)){
 	echo "<tr> 
 				<th>
 				<form action='' method= 'POST'>
-						<button type = 'submit'  value = '{$row['id']}' name = 'cinplex_id'>Delete</button>
+						<button type = 'submit'  value = '{$row['id']}' name = 'cinplex_id' class='button3'>Delete</button>
 					</form>
 				</th>
 				<th> {$row['name']}</th>

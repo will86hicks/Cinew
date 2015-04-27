@@ -67,9 +67,6 @@ Admin Panel
 		<button class='button4' type='submit'>Add to Member</button>
 		</form>
 		
-		<form action='AdminAddToMembership.php' class='form1'>
-		<button class='button4' type='submit'>Add to Membership</button>
-		</form>
 		
 		<form action='AdminAddToMovie.php' class='form1'>
 		<button class='button4' type='submit'>Add to Movie</button>
@@ -77,10 +74,6 @@ Admin Panel
 		
 		<form action='AdminAddToReservation.php' class='form1'>
 		<button class='button4' type='submit'>Add to Reservation</button>
-		</form>
-		
-		<form action='AdminAddToSeats.php' class='form1'>
-		<button class='button4' type='submit'>Add to Seats</button>
 		</form>
 		
 		<form action='AdminAddToTheater.php' class='form1'>
@@ -96,7 +89,7 @@ Admin Panel
 		</form>
 		
 		<form action='AdminAddToReservationSeatAssignments.php' class='form1'>
-		<button class='button5' type='submit'>Add to Reservation Seat Assignments</button>
+		<button class='button5' type='submit'>Add to Res Seat Assignments</button>
 		</form>";
 		
 		echo "<h2><u>Delete from Database</u></h2>";

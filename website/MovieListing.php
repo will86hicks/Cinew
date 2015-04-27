@@ -61,7 +61,6 @@ Select a Complex:<br>
 <button type="submit" class="button1">Select Cinema</button>
 </form>
 
-<br><br>
 <form action="StartPage.php" method="POST">
 <h3>Go Back</h3>
 <button class="button2">BACK</button>

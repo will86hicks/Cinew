@@ -12,28 +12,32 @@ include 'login.php';
 
 <head>
 <title> 
-Create Account
+Login
 </title>
 </head>
 
 <body style="background-color:darkgrey">
 <div align="center">
-<h3>LOGIN</h3>
+<h1><u>LOGIN</u></h1>
 <br>
 
 <head>
 <style>
 .button2{
 	background: lightblue;
-	font-size: 16px;
-	width: 100px;
-	height: 50px
+	font-size: 24px;
+	width: 130px;
+	height: 75px
 }
 .button1{
 	background: green;
-	font-size: 16px;
-	width: 100px;
-	height: 50px
+	font-size: 24px;
+	width: 130px;
+	height: 75px
+}
+select{
+	font-size: 24px;
+	background: lightgreen;
 }
 </head>
 </style>
@@ -42,7 +46,7 @@ Create Account
 <?php
     $IDQuery = mysql_query("SELECT id,f_name,l_name FROM member") or die(mysql_error());
 ?>
-LOGIN ID:
+<p style="font-size:30px"><b>LOGIN ID:</b></p><br>
 <select name="ID">
 	<optgroup label="Users">
 <?php
@@ -58,7 +62,7 @@ LOGIN ID:
 		<option value="Employee">Employee</option>
 </select>
 
-<br><br>
+<br><br><br><br>
 <button type="submit" class="button1">LOGIN</button>
 </form>
 

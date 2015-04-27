@@ -15,12 +15,56 @@ $user = $_SESSION["user"];
 <h3>ADD NEW MEMBER WITH NEW ACCOUNT</h3>
 <br>
 
+<head>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
+}
+
+.button3{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.form1 {
+   display:inline;
+   margin:0;
+   padding:0;
+}
+input{
+	background: lightblue;
+	font-size: 16px;
+}
+
+input:focus, ::-webkit-input-placeholder{
+	color: yellow;
+}
+select{
+	background: lightblue;
+	font-size: 16px;
+}
+</head>
+</style>
+
+
 <form action="AdminAcctCreate.php" method="POST">
 <form action=autocomplete="on">
 
 E-mail: <input type="email" name="usremail" placeholder="bob@something.com" required id ="email">
 <br><br>
-First Name: <input type="input" name="fname" required id="fname" required placeholder="BOB">
+First Name: <input type="input" name="fname" required id="fname" required placeholder="BOB" style="color: green">
 <br><br>
 Last Name: <input type="input" name="lname" required id="lname" required placeholder="BOBERSON">
 <br><br>
@@ -54,8 +98,10 @@ Months of Membership:
 <br><br>
 
 <br><br>
-<button align = "center" type="submit">CREATE ACCOUNT</button>
+<div align="center">
+<button align = "center" type="submit" class="button3">CREATE ACCOUNT</button>
 </form>
+</div>
 </form>
 <br>
 </div>
@@ -103,12 +149,14 @@ Existing Account Number:
 </select>
 
 <br><br>
-<button type="submit">Add Member to Account</button>
+<div align="center">
+<button type="submit" class="button3" style="width: 200px">Add Member to Account</button>
 </form>
 </form>
 <br><br>
+<div align="center">
 <form action="AdminPanelForm.php">
-<button type="submit">Back</button>
+<button type="submit" class="button2">Back</button>
 </form>
 </div>
 </body>
