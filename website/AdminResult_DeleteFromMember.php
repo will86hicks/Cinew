@@ -18,7 +18,8 @@ $acct = $_POST['acct'];
 $dependents = mysql_query("SELECT *
 											FROM membership mp, member m 
 											WHERE m.membership_acct = mp.acct AND
-												mp.prim_member = {$memberToDelete}") or die(mysql_error());
+												mp.prim_member = {$memberToDelete} AND
+												m.id != {$memberToDelete} ") or die(mysql_error());
 												
 //Deleting the member	
 
