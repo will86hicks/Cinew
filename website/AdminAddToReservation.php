@@ -45,7 +45,6 @@ echo
 					
 					if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
 					{
-						//document.getElementById("txt").innerHTML =xmlhttp.responseText;
 						document.getElementById("theaterSelect").innerHTML=xmlhttp.responseText;
 					}
 				}
@@ -146,7 +145,7 @@ echo
 	
 	Cinema Complex: 
 	
-	<select id = "cinplex" onchange = "populateTheater(this.value)" required>
+	<select name = "cinplexId" id = "cinplex" onchange = "populateTheater(this.value)" required>
 			<option value ="">Select a Cineplex </option>
 			<?php
 				$result = mysql_query("SELECT c.name, c.id FROM cinplex c");
@@ -160,7 +159,7 @@ echo
 	
 	<br><br>
 	Theater:
-	<select id = "theaterSelect" onchange = "populateMovie()" required>
+	<select name = "theater" id = "theaterSelect" onchange = "populateMovie()" required>
 		<option value = ''>Select a Theater</option>
 		
 	
@@ -169,7 +168,7 @@ echo
 	
 	Movie:
 	
-	<select name = 'movie' id = "movieSelect" onchange = "populateShowtime()" required>
+	<select name = 'movieId' id = "movieSelect" onchange = "populateShowtime()" required>
 		<option value = ''>Select a Movie</option>
 	</select>
 	
@@ -184,7 +183,7 @@ echo
 	
 	<br><br>
 	Select a Member:
-	<select name="member" required>
+	<select name="memberId" required>
 	<option value = ''></option>
 	<?php
 	
@@ -208,6 +207,5 @@ echo
 <button>BACK</button>
 </form>
 
-<p id = 'txt' > down here</p>
 </body>
 </html>
