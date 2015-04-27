@@ -211,7 +211,7 @@ caption{
 ?>
 
 
-
+<br><br>
 <form action="LoginPage.php">
 <button type="submit" class="button2">Back</button>
 </form>

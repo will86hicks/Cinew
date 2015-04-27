@@ -9,14 +9,38 @@
 
 
 include "login.php";
-
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 ?>
+
+</title>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+select{
+	background: lightblue;
+	color: yellow;
+}
+input{
+	background: lightblue;
+	font-size: 16px;
+}
+::-webkit-input-placeholder{
+	color: yellow;
+}
+</style>
+</head>
 
 <html>
 <body style="background-color:lightgrey">
@@ -144,13 +168,16 @@ echo
 	
 </head>
 
+<body style="background-color:darkgrey">
 <h1 align = "center">Add to Reservation</h1>
 
+<div align='center'> 
 <form action = "AdminResult_AddToReservation" method = "POST">
 	
 	Cinema Complex: 
 	
 	<select name = "cinplexId" id = "cinplex" onchange = "populateTheater(this.value)" required>
+
 			<option value ="">Select a Cineplex </option>
 			<?php
 				$result = mysql_query("SELECT c.name, c.id FROM cinplex c");
@@ -161,6 +188,7 @@ echo
 						
 			?>
 	</select>
+
 	
 	<br><br>
 	Theater:
@@ -201,6 +229,7 @@ echo
 	</select>
 
 	<br><br>
+
 
 	<button>Add Reservation</button>
 </form>
