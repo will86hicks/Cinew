@@ -1,4 +1,9 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+<?php
 include 'login.php'
 ?>
 
@@ -11,7 +16,7 @@ include 'login.php'
 Login Successful!
 </title>
 </head>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <div align="center">
 <?php
