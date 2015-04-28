@@ -28,7 +28,7 @@ echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
 	width: 100px;
 	height: 50px
 }
-select{
+select{  
 	background: lightblue;
 	color: yellow;
 }
@@ -55,6 +55,8 @@ input{
 			document.getElementById("movieSelect").innerHTML = "<option>Select a Movie</option>";
 			document.getElementById("showtimeSelect").innerHTML = "<option>Select a Showtime</option>";
 			
+			//Reset the seat table
+			document.getElementById("seatTable").innerHTML = "";
 			
 			if(cinplex == ""){
 				return;
@@ -90,6 +92,11 @@ input{
 
 			var c = document.getElementById('cinplex').value;
 			var t = document.getElementById('theaterSelect').value;
+			
+			document.getElementById("showtimeSelect").innerHTML = "<option>Select a Showtime</option>";
+			
+			//Reset the seat table
+			document.getElementById("seatTable").innerHTML = "";
 			
 			
 			if(t == ""){
@@ -131,6 +138,9 @@ input{
 			var t = document.getElementById('theaterSelect').value;
 			var m =  document.getElementById('movieSelect').value;
 			
+			//Reset the seat table
+			document.getElementById("seatTable").innerHTML = "";
+			
 			if(m == ""){
 				document.getElementById("showtimeSelect").innerHTML = "";
 				return;
@@ -169,11 +179,11 @@ input{
 			var theater = document.getElementById('theaterSelect').value;
 			var movieID =  document.getElementById('movieSelect').value;
 			var showtime =  document.getElementById('showtimeSelect').value;
-			var member =  document.getElementById('memberSelect').value;
+			//var member =  document.getElementById('memberSelect').value;
 			
+			//document.getElementById("seatTable").innerHTML = "entered the function";
 			
-			
-			if(member == ""){
+			if(showtime == ""){
 				document.getElementById("seatTable").innerHTML = "";
 				return;
 			}
@@ -196,7 +206,7 @@ input{
 					}
 				}
 				
-			xmlhttp.open("POST", "getSeatResDisplay.php?cinplexID=" + cinplexID + '&theater=' + theater + '&movieID=' + movieID +'&showtime=' + showtime, true);
+			xmlhttp.open("GET", "getSeatResDisplay.php?cinplexID=" + cinplexID + '&theater=' + theater + '&movieID=' + movieID +'&showtime=' + showtime, true);
 			xmlhttp.send();
 			
 		}
@@ -212,6 +222,22 @@ input{
 
 <div align='center'> 
 <form action = "AdminResult_AddToReservation" method = "POST">
+
+
+	<br><br>
+	Select a Member:
+	<select name="memberId" id = "memberSelect" required>
+	<option value = ''></option>
+	<?php
+	
+		$memberResult = mysql_query("SELECT * FROM member");
+		
+		while($row = mysql_fetch_array($memberResult)){
+			echo "<option value='{$row['id']}'>{$row['f_name']} {$row['l_name']}</option>" ;
+	}
+	?>
+	</select>
+	<br><br>
 	
 	Cinema Complex: 
 	
@@ -223,6 +249,7 @@ input{
 				
 				while($row = mysql_fetch_array($result)){
 					echo "<option value = '{$row['id']}' name = 'cinplex' > {$row['name']}</option>";
+					exec("sdfdf");
 				}
 						
 			?>
@@ -249,23 +276,11 @@ input{
 	
 	Showtime: 
 	<!--<p id = 'showtimeSelect'> text to be changed</p>-->
-	<select name = 'showtime' id = "showtimeSelect" required >
+	<select name = 'showtime' id = "showtimeSelect"  onchange = "populateSeatTable()" required >
 		<option value = ''>Select a Showtime</option>
 	</select>
 	
-	<br><br>
-	Select a Member:
-	<select name="memberId" id = "memberSelect" onchange = "poulateSeatTable()" required>
-	<option value = ''></option>
-	<?php
-	
-		$memberResult = mysql_query("SELECT * FROM member");
-		
-		while($row = mysql_fetch_array($memberResult)){
-			echo "<option value='{$row['id']}'>{$row['f_name']} {$row['l_name']}</option>" ;
-	}
-	?>
-	</select>
+
 	<br><br>
 
 

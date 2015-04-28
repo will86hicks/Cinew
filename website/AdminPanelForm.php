@@ -92,6 +92,10 @@ Admin Panel
 		<button class='button4' type='submit'>Delete From Cinplex</button>
 		</form>
 		
+		<form action='AdminDeleteFromMember.php' class='form1'>
+		<button class='button4' type='submit'>Delete From Member</button>
+		</form>
+		
 		<form action='AdminDeleteFromMembership.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Membership</button>
 		</form>
@@ -102,10 +106,6 @@ Admin Panel
 		
 		<form action='AdminDeleteFromReservation.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Reservation</button>
-		</form>
-		
-		<form action='AdminDeleteFromSeats.php' class='form1'>
-		<button class='button4' type='submit'>Delete From Seats</button>
 		</form>
 		
 		<form action='AdminDeleteFromTheater.php' class='form1'>
