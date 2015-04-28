@@ -14,6 +14,7 @@ echo
 	<div align='left'> <button class='button2'>LOG OUT</button> </div>
 	</form>";
 $user = $_SESSION["user"];
+$ID = $_SESSION['ID'];
 ?>
 
 <html>
@@ -99,6 +100,15 @@ Welcome!
 		</form>";
 	}
 	else{
+		$prim_member = mysql_query("select id from member M,membership MS where MS.acct = membership_acct AND M.id = MS.prim_member") or die(mysql_error());
+		$row = mysql_fetch_array($prim_member);
+		
+		if($row['id'] == $ID){
+			echo 
+			"<form action='PrimeMemberPage.php'>
+			<button class='button1' type='submit'>Edit Account</button>
+			</form>";
+		}
 		echo 
 		"<form action='MovieListing.php'>
 		<button class='button1' type='submit'>Movie Listings</button>
