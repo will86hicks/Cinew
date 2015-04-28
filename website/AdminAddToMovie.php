@@ -1,5 +1,7 @@
 <?php
 // Jarred A Wynan - jaw4848
+//Date:				4-24-15
+//Certification: 	I, Jarred Wynan, hereby state that this document is my work and only my work.
 
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
@@ -67,7 +69,7 @@ Rating: <br>
 
 <br><br><br>
 
-<form action='StartPage.php'>
+<form action='AdminPanelForm.php'>
 <div align='center'> <button class='button2'>Back</button> </div>
 </form>
 
