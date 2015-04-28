@@ -44,14 +44,17 @@ caption{
 	$movieTitle = $_POST['movieTitle'];
 	$showTime = $_POST['showtime'];
 	$movieID = $_POST['movieID'];
-	$test = $_POST['check_list'];
+	if(!empty($_POST['check_list'])){
+	}
+	//$test = $_POST['check_list'];
 	
 ?>
 
 <div align="center">
 
 <?php
-
+if(!empty($_POST['check_list'])){
+	
 $findAge = mysql_query("select age from member where id = {$ID}") or die(mysql_error());
 $findAge = mysql_fetch_array($findAge);
 
@@ -156,6 +159,10 @@ else if($findRating['rating'] == 'PG-13'){
 														"(member_id,acct,movie_id) ".
 														"VALUES('$ID','{$findMembership['membership_acct']}','$movieID')";
 		$query = mysql_query($sqlWatch) or die(mysql_error());
+}
+}
+else{
+	echo "<h3> <u> No Seats Selected</u></h3>";
 }
 ?>
 

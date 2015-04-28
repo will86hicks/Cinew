@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 //Author:			Will Hicks
 //Date:				4-26-15
@@ -13,7 +9,12 @@ echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
 ?>
 
-</title>
+
+
+
+<html>
+<body style="background-color:lightgrey">
+<head>
 <style>
 .button2{
 	background: red;
@@ -40,11 +41,6 @@ input{
 	color: yellow;
 }
 </style>
-</head>
-
-<html>
-<body style="background-color:lightgrey">
-<head>
 	
 	<script>
 		function populateTheater(cinplex){
