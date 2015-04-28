@@ -12,6 +12,27 @@ echo
 $user = $_SESSION["user"];
 ?>
 
+<?php
+	//This is a button that appears at the top of the AdminPanelForm.php screen and is used to RESET THE ENTIRE DATABASE by calling
+	//"source nwc.create;" and "source nwc.load;" which will remove any changes that have been made to the database and re-initiate all data
+	//to the base hard coded data.
+	echo 
+		"<br><br><form action='' method='POST'>
+		<button class='' type='submit' align='center' value='reload_database' name='reloaded_database'>
+		***************************<br>
+		RELOAD DATABASE<br>
+		***************************</button></form>";
+		
+	if(isset($_POST['reloaded_database']))
+	{
+		//exec("mysql -u groupK -p cs4601_groupK --password=groupKpass < loadDB.sql");
+		exec("mysql -u groupK -p cs4601_groupK --password=tFKslrSM < loadDB.sql");
+		echo"********DATABASE HAS RELOADED!*********";
+
+	}
+
+?>
+
 <html>
 <body>
 
@@ -82,6 +103,10 @@ Admin Panel
 		
 		<form action='AdminAddToWatch.php' class='form1'>
 		<button class='button4' type='submit'>Add to Watch</button>
+		</form>
+		
+		<form action='AdminAddToReservationSeatAssignments.php' class='form1'>
+		<button class='button5' type='submit'>Add to Res Seat Assignments</button>
 		</form>";
 		
 		echo "<h2><u>Delete from Database</u></h2>";
@@ -92,7 +117,7 @@ Admin Panel
 		<button class='button4' type='submit'>Delete From Cinplex</button>
 		</form>
 		
-		<form action='AdminDeleteFromMember.php' class='form1'>
+		 <form action='AdminDeleteFromMember.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Member</button>
 		</form>
 		
@@ -118,6 +143,10 @@ Admin Panel
 		
 		<form action='AdminDeleteFromPlay.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Play Table</button>
+		</form>
+		
+		<form action='AdminDeleteFromReservationSeatAssignments.php' class='form1'>
+		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
 		</form>";
 	}
 ?>
