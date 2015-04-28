@@ -18,8 +18,8 @@ ini_set("display_errors", 1);
 $host=""; 
 $user="groupK";
 //$user="arm8759";
-$password="groupKpass";
-//$password="tFKslrSM";
+//$password="groupKpass";
+$password="tFKslrSM";
 $database="cs4601_groupK";
 // Connect to the database
 $connect = mysql_connect($host,$user,$password);
