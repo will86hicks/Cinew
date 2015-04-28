@@ -122,7 +122,6 @@ while($row = mysql_fetch_array($membershipQuery)){
 			"</table>";
 }
 ?>
-
 <?php
 if(isset($_POST['membership_button']))
 {
@@ -140,7 +139,6 @@ if(isset($_POST['membership_button']))
 	}
 }
 ?>
-
 </div>
 </body>
 </html>

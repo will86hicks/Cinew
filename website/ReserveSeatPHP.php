@@ -44,14 +44,17 @@ caption{
 	$movieTitle = $_POST['movieTitle'];
 	$showTime = $_POST['showtime'];
 	$movieID = $_POST['movieID'];
-	$test = $_POST['check_list'];
+	if(!empty($_POST['check_list'])){
+	}
+	//$test = $_POST['check_list'];
 	
 ?>
 
 <div align="center">
 
 <?php
-
+if(!empty($_POST['check_list'])){
+	
 $findAge = mysql_query("select age from member where id = {$ID}") or die(mysql_error());
 $findAge = mysql_fetch_array($findAge);
 
@@ -61,6 +64,7 @@ $findRating = mysql_fetch_array($findRating);
 $findMembership = mysql_query("select membership_acct from member where id = {$ID}") or die(mysql_error());
 $findMembership = mysql_fetch_array($findMembership);
 
+//Returns a count of how many reserved seats for that membership that are in that theater->movie->showtime
 $countOfResMembers = mysql_query("select count(RSA.reserv_id) as num from reservation R,res_seat_assignments RSA where R.acct = {$findMembership['membership_acct']} 
 																																	AND R.cinplex = {$cinemaID} 
 																																	AND R.theater = {$theaterID} 
@@ -69,6 +73,7 @@ $countOfResMembers = mysql_query("select count(RSA.reserv_id) as num from reserv
 																																	AND RSA.reserv_id = R.id") or die(mysql_error());
 $countOfResMembers = mysql_fetch_array($countOfResMembers);
 
+//Returns a count of how many members are associated with that account
 $countOfMembers = mysql_query("select count(*) as num from member where membership_acct = {$findMembership['membership_acct']}") or die(mysql_error());
 $countOfMembers = mysql_fetch_array($countOfMembers);
 
@@ -81,11 +86,16 @@ $reserveID = mysql_query("select count(*) as num from reservation") or die(mysql
 $reserveID = mysql_fetch_array($reserveID);
 $reserveID = $reserveID['num'] + 1;
 
+//Check to see if they have already reserved seats for them and their dependants already
 if($countOfResMembers['num'] == $countOfMembers['num']){
 	echo "<h3><u>Number of Reservations at Maximum Capacity</u></h3>";
-}else if($sum > $countOfMembers['num']){
+}
+//check to see if they have over reserved according to the number of members associated with their account
+else if($sum > $countOfMembers['num']){
 	echo "<h3><u>Cannot Reserve more seats than members on Account!</u></h3>";
-}else if($findRating['rating'] == 'PG-13'){
+}
+//Do some safety checks so kids don't see stuff they're not supposed to see
+else if($findRating['rating'] == 'PG-13'){
 	if($findAge['age'] < 13){
 		echo "<h3><u>{$user} you are under-aged for this movie!</u></h3>";
 	}else{
@@ -150,10 +160,18 @@ if($countOfResMembers['num'] == $countOfMembers['num']){
 														"VALUES('$ID','{$findMembership['membership_acct']}','$movieID')";
 		$query = mysql_query($sqlWatch) or die(mysql_error());
 }
+}
+else{
+	echo "<h3> <u> No Seats Selected</u></h3>";
+}
 ?>
 
-<p><b>You are being redirected!</b></p>
+<h3>Go Back</h3>
+
+<form action="MovieListing.php">
+<button>BACK</button>
+</form>
+
 </div>
-<meta http-equiv="refresh" content="2; url=MovieListing.php"/>
 </body>
 </html>

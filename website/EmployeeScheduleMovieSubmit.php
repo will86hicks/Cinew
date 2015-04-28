@@ -88,8 +88,10 @@ caption{
 ?>
 
 
-<p><b>You are being redirected!</b></p>
+<form action="EmployeeScheduleMovieForm.php">
+<button type="submit" class="button2">Back</button>
+</form>
+
 </div>
-<meta http-equiv="refresh" content="2; url=EmployeeScheduleMovieForm.php"/>
 </body>
 </html>

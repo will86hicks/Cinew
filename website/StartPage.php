@@ -14,7 +14,7 @@ echo
 	<div align='left'> <button class='button2'>LOG OUT</button> </div>
 	</form>";
 $user = $_SESSION["user"];
-$ID = $_SESSION['ID'];
+$id = $_SESSION["ID"];
 ?>
 
 <html>
@@ -100,15 +100,6 @@ Welcome!
 		</form>";
 	}
 	else{
-		$prim_member = mysql_query("select id from member M,membership MS where MS.acct = membership_acct AND M.id = MS.prim_member") or die(mysql_error());
-		$row = mysql_fetch_array($prim_member);
-		
-		if($row['id'] == $ID){
-			echo 
-			"<form action='PrimeMemberPage.php'>
-			<button class='button1' type='submit'>Edit Account</button>
-			</form>";
-		}
 		echo 
 		"<form action='MovieListing.php'>
 		<button class='button1' type='submit'>Movie Listings</button>
@@ -119,10 +110,25 @@ Welcome!
 		<button class='button1' type='submit'>View History</button>
 		</form>";
 		
-		echo 
-		"<form action='addDependent.php'>
-		<button class='button1' type='submit'>Add Dependent</button>
-		</form>";
+		//$curious = mysql_query("SELECT DISTINCT MEM.prim_member FROM membership MEM, member M
+		//											WHERE MEM.prim_member = M.id
+		//											AND M.membership_acct = MEM.acct
+		//											AND M.id = {$id}");
+													
+		
+		$primMember = mysql_query("SELECT DISTINCT M.id FROM membership MEM, member M WHERE M.id = MEM.prim_member
+										AND M.membership_acct = MEM.acct
+										AND MEM.prim_member = M.id
+										AND M.id = {$id}");
+		$x = mysql_fetch_array($primMember);
+		$y = $x[0];
+		if($y == $id)
+		{
+			echo 
+			"<form action='addDependent.php'>
+			<button class='button1' type='submit'>Add Dependent</button>
+			</form>";
+		}
 	}
 ?>
 
