@@ -1,4 +1,9 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+<?php
 include 'login.php';
 ?>
 
@@ -7,20 +12,41 @@ include 'login.php';
 
 <head>
 <title> 
-Create Account
+Login
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <div align="center">
-<h3>LOGIN</h3>
+<h1><u>LOGIN</u></h1>
 <br>
+
+<head>
+<style>
+.button2{
+	background: lightblue;
+	font-size: 24px;
+	width: 130px;
+	height: 75px
+}
+.button1{
+	background: green;
+	font-size: 24px;
+	width: 130px;
+	height: 75px
+}
+select{
+	font-size: 24px;
+	background: lightgreen;
+}
+</head>
+</style>
 
 <form action="LoginPagePHP.php" method="POST">
 <?php
     $IDQuery = mysql_query("SELECT id,f_name,l_name FROM member") or die(mysql_error());
 ?>
-LOGIN ID:
+<p style="font-size:30px"><b>LOGIN ID:</b></p><br>
 <select name="ID">
 	<optgroup label="Users">
 <?php
@@ -36,12 +62,12 @@ LOGIN ID:
 		<option value="Employee">Employee</option>
 </select>
 
-<br><br>
-<button type="submit">LOGIN</button>
+<br><br><br><br>
+<button type="submit" class="button1">LOGIN</button>
 </form>
 
 <form action="AcctCreateForm.php">
-<button type="submit">CREATE ACCOUNT</button>
+<button type="submit" class="button2">CREATE ACCOUNT</button>
 </form>
 </div>
 </body>

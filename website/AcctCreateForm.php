@@ -1,4 +1,10 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+
+<?php
 include 'login.php';
 ?>
 
@@ -11,32 +17,55 @@ Create Account
 </title>
 </head>
 
-<body style="background-color:lightgrey">
-<h3>CREATE ACCOUNT</h3>
+<div align="center">
+<body style="background-color:darkgrey">
+<h1>CREATE ACCOUNT</h1>
 <br>
+</div>
+
+<head>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.background{
+	font-size: 24px;
+	background: lightblue;
+}
+</head>
+</style>
 
 <form action="AcctCreatePHP.php" method="POST">
 <form action=autocomplete="on">
-E-mail: <input type="email" name="usremail" placeholder="bob@something.com" required id ="email">
+<font size="5"><b>E-mail: </b><input type="email" name="usremail" placeholder="bob@something.com" required id ="email" class="background">
 <br><br>
-First Name: <input type="input" name="fname" required id="fname" required placeholder="BOB">
+<font size="5"><b>First Name: </b><input type="input" name="fname" required id="fname" required placeholder="BOB" class="background">
 <br><br>
-Last Name: <input type="input" name="lname" required id="lname" required placeholder="BOBERSON">
+<b>Last Name: </b><input type="input" name="lname" required id="lname" required placeholder="BOBERSON" class="background">
 <br><br>
 
-Address Line: <input type="input" name="address" id="address" required placeholder="1234 Rainbow Road">
-City: <input type="input" name="city" id="city" required placeholder="Mario Kart">
-State: <input type="input" name="state" id="state" required size="1"  placeholder="SNES" >
-ZipCode: <input type="input" name="zip"  id="zip"  size="5"  placeholder="70765" minlength="5" maxlength="5">
+<b>Address Line: </b><input type="input" name="address" id="address" required placeholder="1234 Rainbow Road" class="background">
+<b>City: </b><input type="input" name="city" id="city" required placeholder="Mario Kart" class="background">
+<b>State: </b><input type="input" name="state" id="state" required size="1"  placeholder="LA" class="background">
+<b>ZipCode: </b><input type="input" name="zip"  id="zip"  size="5"  placeholder="70765" minlength="5" maxlength="5" class="background">
 <br><br>
-Phone Number: <input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum"required>
+<b>Phone Number: </b><input type="input" name="phone" placeholder="(123)456-7890" minlength="13" maxlength="13" id="phoneNum"required class="background">
 
-Age: <input type="number" name="age" id="ages" required placeholder="23">
+<b>Age: </b><input type="number" name="age" id="ages" required placeholder="23" class="background"></font>
 <br>
 
 <br><br>
-Months of Membership:
-<select name="months">
+<b>Months of Membership:</b>
+<select name="months" class="background">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -57,22 +86,13 @@ Months of Membership:
 ?>
 <div align="center">
 <p><b>The membership fee is $30 per month per person.</b></p>
-<!--Select a member<br>
-<select name="members" multiple>
-	<option value="None">None</option>
-<?php
-	//while($row = mysql_fetch_array($result)){
-		//echo "<option value='{$row['f_name']} {$row['l_name']}'>{$row['f_name']} {$row['l_name']}</option>" ;
-	//}
-?>
-</select-->
 <br><br>
-<button type="submit">CREATE ACCOUNT</button>
+<button type="submit" class="button1">CREATE ACCOUNT</button>
 </form>
 </form>
 <br><br>
 <form action="LoginPage.php">
-<button type="submit">Back</button>
+<button type="submit" class="button2">Back</button>
 </form>
 </div>
 </body>

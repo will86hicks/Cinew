@@ -67,9 +67,6 @@ Admin Panel
 		<button class='button4' type='submit'>Add to Member</button>
 		</form>
 		
-		<form action='AdminAddToMembership.php' class='form1'>
-		<button class='button4' type='submit'>Add to Membership</button>
-		</form>
 		
 		<form action='AdminAddToMovie.php' class='form1'>
 		<button class='button4' type='submit'>Add to Movie</button>
@@ -79,24 +76,12 @@ Admin Panel
 		<button class='button4' type='submit'>Add to Reservation</button>
 		</form>
 		
-		<form action='AdminAddToSeats.php' class='form1'>
-		<button class='button4' type='submit'>Add to Seats</button>
-		</form>
-		
 		<form action='AdminAddToTheater.php' class='form1'>
 		<button class='button4' type='submit'>Add to Theater</button>
 		</form>
 		
 		<form action='AdminAddToWatch.php' class='form1'>
 		<button class='button4' type='submit'>Add to Watch</button>
-		</form>
-		
-		<form action='AdminAddToPlay.php' class='form1'>
-		<button class='button4' type='submit'>Add to Play Table</button>
-		</form>
-		
-		<form action='AdminAddToReservationSeatAssignments.php' class='form1'>
-		<button class='button5' type='submit'>Add to Reservation Seat Assignments</button>
 		</form>";
 		
 		echo "<h2><u>Delete from Database</u></h2>";
@@ -105,10 +90,6 @@ Admin Panel
 		echo 
 		"<form action='AdminDeleteFromCinplex.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Cinplex</button>
-		</form>
-		
-		 <form action='AdminDeleteFromMember.php' class='form1'>
-		<button class='button4' type='submit'>Delete From Member</button>
 		</form>
 		
 		<form action='AdminDeleteFromMembership.php' class='form1'>
@@ -137,10 +118,6 @@ Admin Panel
 		
 		<form action='AdminDeleteFromPlay.php' class='form1'>
 		<button class='button4' type='submit'>Delete From Play Table</button>
-		</form>
-		
-		<form action='AdminDeleteFromReservationSeatAssignments.php' class='form1'>
-		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
 		</form>";
 	}
 ?>

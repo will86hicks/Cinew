@@ -28,24 +28,34 @@ Add Movie
 	width: 100px;
 	height: 50px
 }
+input, ::-webkit-input-placeholder,select{
+	background: lightblue;
+	color: yellow;
+}
 </style>
 </head>
 
 <div align="center">
 <body style="background-color:darkgrey">
 <h2>ADD Movie</h2>
-<br></div>
+<br>
 
 <form action="AdminAddToMovieSubmit.php" method="POST">
-Movie Title: <input type="input" name="movieTitle" placeholder="Furious7" required id ="title">
+Movie Title:<br><input type="input" name="movieTitle" placeholder="Furious7" required id ="title">
 <br><br>
-Description: <input type="input" name="description" required id="descr" required placeholder="Full-Fledged Action">
+Description:<br><input type="input" name="description" required id="descr" required placeholder="Full-Fledged Action">
 <br><br>
-Runtime(min): <input type="input" name="runtime" required id="runtime" required placeholder="100">
+Runtime(min): <br><input type="input" name="runtime" required id="runtime" required placeholder="100">
 <br><br>
-Rating: <input type="input" name="rating" required id="rating" required placeholder="G">
+Stars:<br><input type="input" name="stars" required id="stars" required placeholder="The Rok">
 <br><br>
-Stars: <input type="input" name="stars" required id="stars" required placeholder="The Rok">
+Rating: <br>
+<select name="rating">
+	<option value="">G</option>
+	<option value="">PG</option>
+	<option value="">PG-13</option>
+	<option value="">R</option>
+</select>
 <br><br>
 <!--ID(unique): <input type="input" name="id" required id="id" required placeholder="1111">
 <br><br>-->

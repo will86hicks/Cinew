@@ -31,17 +31,11 @@ $dependents = mysql_query("SELECT *
 												mp.prim_member = {$memberToDelete} AND
 												m.id != {$memberToDelete} ") or die(mysql_error());
 												
-echo "<p>	This is their id {$memberToDelete} </p>";										
 //Deleting the member	
 
-	//if(mysql_query("DELETE FROM member WHERE id = '{$memberToDelete}'")){
-	mysql_query("DELETE FROM member WHERE id = '{$memberToDelete}'");
-	
-	if(mysql_affected_rows() !=0){
-
-		mysql_query("DELETE FROM membership WHERE prim_member = {$memberToDelete}");
+	if(mysql_query("DELETE FROM member WHERE id = '{$memberToDelete}'")){
 		
-		if(mysql_affected_rows() !=0){
+		if(mysql_query("DELETE FROM membership WHERE prim_member = {$memberToDelete}")){
 			
 			echo"<p> Member was a primary member of a membership.  The membership account associated with member '{$memberToDelete}' has been deleted.</p>";
 			

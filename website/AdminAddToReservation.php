@@ -3,15 +3,44 @@
 
 
 <?php
-include "login.php";
+//Author:			Will Hicks
+//Date:				4-26-15
+//Certification: 	I, Will Hicks, hereby state that this document is my work and only my work.
 
+
+include "login.php";
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 ?>
+
+</title>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+select{
+	background: lightblue;
+	color: yellow;
+}
+input{
+	background: lightblue;
+	font-size: 16px;
+}
+::-webkit-input-placeholder{
+	color: yellow;
+}
+</style>
+</head>
 
 <html>
 <body style="background-color:lightgrey">
@@ -45,7 +74,6 @@ echo
 					
 					if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
 					{
-						//document.getElementById("txt").innerHTML =xmlhttp.responseText;
 						document.getElementById("theaterSelect").innerHTML=xmlhttp.responseText;
 					}
 				}
@@ -140,13 +168,16 @@ echo
 	
 </head>
 
+<body style="background-color:darkgrey">
 <h1 align = "center">Add to Reservation</h1>
 
+<div align='center'> 
 <form action = "AdminResult_AddToReservation" method = "POST">
 	
 	Cinema Complex: 
 	
-	<select id = "cinplex" onchange = "populateTheater(this.value)" required>
+	<select name = "cinplexId" id = "cinplex" onchange = "populateTheater(this.value)" required>
+
 			<option value ="">Select a Cineplex </option>
 			<?php
 				$result = mysql_query("SELECT c.name, c.id FROM cinplex c");
@@ -157,10 +188,11 @@ echo
 						
 			?>
 	</select>
+
 	
 	<br><br>
 	Theater:
-	<select id = "theaterSelect" onchange = "populateMovie()" required>
+	<select name = "theater" id = "theaterSelect" onchange = "populateMovie()" required>
 		<option value = ''>Select a Theater</option>
 		
 	
@@ -169,7 +201,7 @@ echo
 	
 	Movie:
 	
-	<select name = 'movie' id = "movieSelect" onchange = "populateShowtime()" required>
+	<select name = 'movieId' id = "movieSelect" onchange = "populateShowtime()" required>
 		<option value = ''>Select a Movie</option>
 	</select>
 	
@@ -184,7 +216,7 @@ echo
 	
 	<br><br>
 	Select a Member:
-	<select name="member" required>
+	<select name="memberId" required>
 	<option value = ''></option>
 	<?php
 	
@@ -198,6 +230,7 @@ echo
 
 	<br><br>
 
+
 	<button>Add Reservation</button>
 </form>
 
@@ -208,6 +241,5 @@ echo
 <button>BACK</button>
 </form>
 
-<p id = 'txt' > down here</p>
 </body>
 </html>

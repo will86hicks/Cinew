@@ -1,4 +1,9 @@
 <?php
+//Author:			Jacob LeCoq
+//Date:				4-26-15
+//Certification: 	I, Jacob LeCoq, hereby state that this document is my work and only my work.
+?>
+<?php
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
@@ -38,6 +43,7 @@ caption{
 	$theaterID = $_POST['theaterID'];
 	$movieTitle = $_POST['movieTitle'];
 	$showTime = $_POST['showtime'];
+	$movieID = $_POST['movieID'];
 	$test = $_POST['check_list'];
 	
 ?>
@@ -95,6 +101,15 @@ if($countOfResMembers['num'] == $countOfMembers['num']){
 														"VALUES('$reserveID','$selected')";
 			$query = mysql_query($sqlInsertRes_Seat_Assignments) or die(mysql_error());
 		}
+		
+		$watchCheck = mysql_query("select * from watch where member_id = {$ID} AND acct = {$findMembership['membership_acct']} AND movie_id = {$movieID}") or die(mysql_error());
+		$watchCheck = mysql_fetch_array($watchCheck);
+		if($watchCheck == null){
+			$sqlWatch = "INSERT INTO watch".
+														"(member_id,acct,movie_id) ".
+														"VALUES('$ID','{$findMembership['membership_acct']}','$movieID')";
+			$query = mysql_query($sqlWatch) or die(mysql_error());
+		}
 	}
 }else if($findRating['rating'] == 'R'){
 	if($findAge['age'] < 17){
@@ -112,6 +127,10 @@ if($countOfResMembers['num'] == $countOfMembers['num']){
 														"VALUES('$reserveID','$selected')";
 			$query = mysql_query($sqlInsertRes_Seat_Assignments) or die(mysql_error());
 		}
+		$sqlWatch = "INSERT INTO watch".
+														"(member_id,acct,movie_id) ".
+														"VALUES('$ID','{$findMembership['membership_acct']}','$movieID')";
+		$query = mysql_query($sqlWatch) or die(mysql_error());
 	}
 }else{
 	echo "<h3><u>Scheduled Reservation for {$movieTitle} at {$cinema} for {$showTime}</u></h3>";
@@ -126,15 +145,15 @@ if($countOfResMembers['num'] == $countOfMembers['num']){
 													"VALUES('$reserveID','$selected')";
 		$query = mysql_query($sqlInsertRes_Seat_Assignments) or die(mysql_error());
 	}
+	$sqlWatch = "INSERT INTO watch".
+														"(member_id,acct,movie_id) ".
+														"VALUES('$ID','{$findMembership['membership_acct']}','$movieID')";
+		$query = mysql_query($sqlWatch) or die(mysql_error());
 }
 ?>
 
-<h3>Go Back</h3>
-
-<form action="MovieListing.php">
-<button>BACK</button>
-</form>
-
+<p><b>You are being redirected!</b></p>
 </div>
+<meta http-equiv="refresh" content="2; url=MovieListing.php"/>
 </body>
 </html>
