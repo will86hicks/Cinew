@@ -1,5 +1,7 @@
 <?php
 // Jarred A Wynan - jaw4848
+//Date:				4-25-15
+//Certification: 	I, Jarred Wynan, hereby state that this document is my work and only my work.
 
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
@@ -18,7 +20,7 @@ Member Listings
 </head>
 
 
-<h3>Member Listings</h3>
+<h3>Members watched movies</h3>
 
 <form action="AdminAddToWatchSubmit.php" method="POST">
 <?php
