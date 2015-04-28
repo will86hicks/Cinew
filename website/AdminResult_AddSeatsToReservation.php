@@ -11,10 +11,11 @@ $reserveID = $_POST['reservationId'];
 
 echo "<div align = 'center'>";
 if(!empty($_POST['check_list'])){
+	echo "<h3><b> SUCCESSFULLY ADDED SEATS TO THE RESERVED SEATS TABLE</b></h2>";
 	
 foreach($_POST['check_list'] as $selected){
 	
-			echo "<h3><b> SUCCESSFULLY ADDED SEATS TO THE RESERVED SEATS TABLE</b></h2>";
+			
 			$sqlInsertRes_Seat_Assignments = "INSERT INTO res_seat_assignments".
 														"(reserv_id,seat_no) ".
 														"VALUES('$reserveID','$selected')";
