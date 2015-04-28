@@ -152,8 +152,12 @@ if($countOfResMembers['num'] == $countOfMembers['num']){
 }
 ?>
 
-<p><b>You are being redirected!</b></p>
+<h3>Go Back</h3>
+
+<form action="MovieListing.php">
+<button>BACK</button>
+</form>
+
 </div>
-<meta http-equiv="refresh" content="2; url=MovieListing.php"/>
 </body>
 </html>
