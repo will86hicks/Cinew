@@ -6,10 +6,6 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 
@@ -22,8 +18,8 @@ Admin Panel
 </title>
 </head>
 
-<body style="background-color:lightgrey">
-<div align="left">
+<body style="background-color:darkgrey">
+<div align="center">
 
 <h1><u>Delete From Theater</u></h1>
 <head>
@@ -34,7 +30,12 @@ Admin Panel
 	width: 100px;
 	height: 50px
 }
-
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
 .button4{
 	background: orange;
 	font-size: 24px;
@@ -52,12 +53,20 @@ Admin Panel
 
 <head>
 	<title>Theater</title>
-	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
+<style>
+table, th, td {
+	border: 1px solid black; border-collapse: collapse;
+	background: lightgreen;
+}
+
+th, td {
+	padding: 5px;text-align: center;
+}
 			
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
 }
 </style>
 
@@ -79,7 +88,7 @@ while($row = mysql_fetch_array($alltheaters)){
 	echo "<tr> 
 				<th>
 				<form action='' method= 'POST'>
-						<button type = 'submit'  value = '{$row['number']}' name = 'delete_number'>Delete</button>
+						<button type = 'submit'  value = '{$row['number']}' name = 'delete_number' class='button3'>Delete</button>
 						<input type='hidden' value= '{$row['cinplex_id']}' name= 'delete_cinplex_id'>
 					</form>";
 	$cinplexNameFromID = mysql_query("SELECT C.name FROM cinplex C, theater T WHERE C.id = T.cinplex_id AND T.number = {$row['number']} AND T.cinplex_id = {$row['cinplex_id']}") or die(mysql_error());

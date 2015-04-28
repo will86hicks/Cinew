@@ -285,14 +285,14 @@ input{
 	
 		<br><br>
 	
-	<button>Add Reservation</button>
+	<button class='button1'>Add Reservation</button>
 </form>
 
 
 
 <form action="AdminPanelForm.php" method="POST">
 <h3>Go Back</h3>
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </form>
 
 </body>

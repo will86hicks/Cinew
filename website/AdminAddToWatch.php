@@ -10,7 +10,7 @@ $user = $_SESSION["user"];
 ?>
 
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <div align="center">
 <head>
@@ -19,8 +19,34 @@ Member Listings
 </title>
 </head>
 
+<head>
+<style>
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 150px;
+	height: 70px
+}
+.button4{
+	background: lightblue;
+	font-size: 16px;
+	width: 80px;
+	height: 40px
+}
+select{
+	background: lightblue;
+	color: darkblue;
+}
+</head>
+</style>
 
-<h3>Members watched movies</h3>
+<h3><u>Members watched movies</u></h3>
 
 <form action="AdminAddToWatchSubmit.php" method="POST">
 <?php
@@ -50,13 +76,13 @@ Select a Movie to add to Watched list:<br>
 </select>
  
 <br><br>
-<button type="submit">Add Movie To Members Watched List</button>
+<button type="submit" class='button1'>Add Movie To Members Watched List</button>
 </form>
 
 <br><br><br>
 <form action="AdminPanelForm.php" method="POST">
 <h3>Go Back</h3>
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </div>
 </body>
 </html>

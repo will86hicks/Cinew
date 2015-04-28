@@ -6,22 +6,55 @@ include "login.php";
 
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 ?>
 
 <html>
-<body style="background-color:lightgrey">
+<div align='center'>
+<h1><u>Delete From Reservation</u></h1>
+<body style="background-color:darkgrey">
 <head>
-<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
+<style>
+
+ table, th, td {
+	 border: 1px solid black; border-collapse: collapse;
+	 background:lightgreen;
+}
+th, td 
+{
+	padding: 5px;text-align: center;
+}
 			
-			caption{
-				border: 1px solid black;
-				font-size: 30;
-				}
+caption{
+	border: 1px solid black;
+	font-size: 30;
+	background:lightgreen;
+}
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
+}
+
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 130px;
+	height: 50px
+}
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
 </style>
 </head>
 
@@ -49,7 +82,7 @@ while($row = mysql_fetch_array($allReservations)){
 	echo "<tr> 
 				<th>
 					<form action= 'AdminResult_DeleteFromReservation.php' method= 'POST'>
-						<button type = 'submit'  value = '{$row['id']}' name = 'res_id'>Delete Reservation</button>
+						<button type = 'submit'  value = '{$row['id']}' name = 'res_id' class='button3'>Delete Reservation</button>
 						
 					</form>
 				</th>
@@ -76,6 +109,6 @@ while($row = mysql_fetch_array($allReservations)){
 <h3>Go Back</h3>
 <button>BACK</button>
 </form>
-
+</div>
 </body>
 </html>

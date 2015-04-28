@@ -104,23 +104,16 @@ echo "<select name = 'reservationId' id = 'reservationSelect' onchange = 'showSe
 ?>
 
 
-</div>
-
 <div id = 'seatTable'>
-
-</div>
-<div align = "center">
+</div><br>
 <button class = "button1"> Add Seats</button>
-</div>
-
 </form>
-
 <h3>Go Back</h3>
 
 <form action="AdminPanelForm.php">
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </form>
 </body>
-
+</div>
 
 </html>
