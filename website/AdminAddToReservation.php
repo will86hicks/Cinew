@@ -221,7 +221,7 @@ input{
 <h1 align = "center">Add to Reservation</h1>
 
 <div align='center'> 
-<form action = "AdminResult_AddToReservation" method = "POST">
+<form action = "AdminReserveSeat.php" method = "POST">
 
 
 	<br><br>
@@ -285,7 +285,7 @@ input{
 
 
 	
-	<div id = "seatTable" >this is where the table will spawn</div>
+	<div id = "seatTable" ></div>
 	
 		<br><br>
 	

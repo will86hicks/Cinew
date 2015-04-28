@@ -78,7 +78,6 @@ caption{
 	$numCols = $seatchart[0];
 	$numRows = $seatchart[1];
 	
-	echo"<form action='ReserveSeatPHP.php' method='POST'>";
 	echo
 	"<table style='width:50%'>
 		<caption>{$title} at the {$cinema} in Theater {$theater}</caption>
@@ -118,15 +117,7 @@ caption{
 		echo "</tr>";
 	}
 	echo"</table>
-	<input type='hidden' value='{$cinema}' name='cinema'/>
-	<input type='hidden' value='{$cinemaID}' name='cinemaID'/>
-	<input type='hidden' value='{$theater}' name='theaterID'/>
-	<input type='hidden' value='{$showtime}' name='showtime'/>
-	<input type='hidden' value='{$title}' name='movieTitle'/>
-	<input type='hidden' value='{$movieID}' name='movieID'/>
-	<br><br>
-	<button class='button1'>Submit</button>
-	</form>";
+	<br><br>";
 ?>
 
 
