@@ -84,7 +84,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='MovieHistory.php'>
 		<button class='button1' type='submit'>View History</button>
 		</form>";
 	}
@@ -127,6 +127,11 @@ Welcome!
 			echo 
 			"<form action='addDependent.php'>
 			<button class='button1' type='submit'>Add Dependent</button>
+			</form>";
+			
+			echo 
+			"<form action='PrimeMemberPage.php'>
+			<button class='button1' type='submit'>Edit Account</button>
 			</form>";
 		}
 	}

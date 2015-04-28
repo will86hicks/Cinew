@@ -2,27 +2,53 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 
 <html>
-<body style="background-color:lightgrey">
+<div align='center'>
+<h1><u>Delete From Member</u></h1>
+<body style="background-color:darkgrey">
 
 <head>
 	<title> Members</title>
-	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
+
+	<style> 
+table, th, td {
+	border: 1px solid black; border-collapse: collapse;
+	background: lightgreen;
+}
+th, td {
+	padding: 5px;text-align: center;
+}
 			
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
+}
+
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
+}
+
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
 }
 </style>
-
 </head>
 
 <table style='width:50%'>
@@ -49,7 +75,7 @@ while($row = mysql_fetch_array($allmembers)){
 	echo "<tr> 
 				<th>
 					<form action= 'AdminResult_DeleteFromMember.php' method= 'POST'>
-						<button type = 'submit'  value = '{$row['id']}' name = 'member_id'>Delete Member</button>
+						<button type = 'submit'  value = '{$row['id']}' name = 'member_id' class='button3'>Delete Member</button>
 						<input type='hidden' value= '{$row['membership_acct']}' name= 'acct'>
 					</form>
 				</th>
@@ -70,10 +96,8 @@ while($row = mysql_fetch_array($allmembers)){
 </table>
 
 <br><br>
-
-<div style="text-align:center">
 	<form action = "AdminPanelForm.php">
-		<button type = "submit" >BACK</button>
+		<button type = "submit" class='button2'>BACK</button>
 	</form>
 </div>
 

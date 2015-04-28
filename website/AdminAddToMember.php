@@ -2,10 +2,6 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 

@@ -6,10 +6,6 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 
@@ -22,7 +18,7 @@ Admin Panel
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <div align="center">
 
 <h1><u>Add to Cinplex</u></h1>
@@ -42,6 +38,12 @@ Admin Panel
 	height: 80px
 }
 
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 130px;
+	height: 50px
+}
 .button3{
 	background: lightblue;
 	font-size: 16px;
@@ -59,12 +61,19 @@ Admin Panel
 
 <head>
 	<title>Cinplex</title>
-	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
+<style> 
+table, th, td {
+	border: 1px solid black; border-collapse: collapse;
+	background: lightgreen;
+}
+th, td {
+	padding: 5px;text-align: center;
+}
 			
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
 }
 </style>
 
@@ -76,7 +85,7 @@ caption{
 		Cinplex Name:<br><input type='text' name='name' placeholder='Tasty Cupcakes'><br>
 		Cinplex Addr:<br><input type='text' name='addr' placeholder='1234 Seeya Drive'><br>
 		Cinplex Phone Number:<br><input type='text' name='phone' placeholder='(123)456-7890'><br><br>
-		<input align='center' type='submit' name='cinplex_button' value='Add this Cinplex'></form>";
+		<input align='center' type='submit' name='cinplex_button' value='Add this Cinplex' class='button1'></form>";
 		
 		//if the 'Add this Cinplex' button gets pressed, insert all this information into the database
 		if(isset($_POST['cinplex_button']))

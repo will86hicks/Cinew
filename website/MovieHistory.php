@@ -11,7 +11,7 @@ $user = $_SESSION["user"];
 $ID = $_SESSION["ID"];
 ?>
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <div align="center">
 <head>

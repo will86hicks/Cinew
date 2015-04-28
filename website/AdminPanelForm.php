@@ -18,16 +18,16 @@ $user = $_SESSION["user"];
 	//to the base hard coded data.
 	echo 
 		"<br><br><form action='' method='POST'>
-		<button class='' type='submit' align='center' value='reload_database' name='reloaded_database'>
+		<button class='button6' type='submit' align='center' value='reload_database' name='reloaded_database'>
 		***************************<br>
 		RELOAD DATABASE<br>
 		***************************</button></form>";
 		
 	if(isset($_POST['reloaded_database']))
 	{
-		//exec("mysql -u groupK -p cs4601_groupK --password=groupKpass < loadDB.sql");
+		exec("mysql -u groupK -p cs4601_groupK --password=groupKpass < loadDB.sql");
 		exec("mysql -u groupK -p cs4601_groupK --password=tFKslrSM < loadDB.sql");
-		echo"********DATABASE HAS RELOADED!*********";
+		echo"<b>********DATABASE HAS RELOADED!*********</b>";
 
 	}
 
@@ -42,7 +42,7 @@ Admin Panel
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <div align="center">
 
 <h1><u>Admin Panel</u></h1>
@@ -51,6 +51,10 @@ Admin Panel
 <h2><u>Add to Database</u></h2>
 <head>
 <style>
+.button6{
+	background: darkred;
+	font-size: 16px;
+}
 .button2{
 	background: red;
 	font-size: 16px;
@@ -70,7 +74,7 @@ Admin Panel
 }
 .button5{
 	background: orange;
-	font-size: 15px;
+	font-size: 24px;
 	width: 150px;
 	height: 80px
 }
@@ -81,7 +85,7 @@ Admin Panel
 	if($user == "Admin"){
 		echo 
 		"<form action='AdminAddToCinplex.php' class='form1'>
-		<button class='button4' type='submit'>Add to Cinplex</button>
+		<button class='button4' type='submit'>Add/Delete to Cinplex</button>
 		</form>
 		
 		 <form action='AdminAddToMember.php' class='form1'>
@@ -106,7 +110,7 @@ Admin Panel
 		</form>
 		
 		<form action='AdminAddToReservationSeatAssignments.php' class='form1'>
-		<button class='button5' type='submit'>Add to Res Seat Assignments</button>
+		<button class='button5' type='submit'>Add Seat Assignments</button>
 		</form>";
 		
 		echo "<h2><u>Delete from Database</u></h2>";
@@ -146,14 +150,14 @@ Admin Panel
 		</form>
 		
 		<form action='AdminDeleteFromReservationSeatAssignments.php' class='form1'>
-		<button class='button5' type='submit'>Delete From Reservation Seat Assignments</button>
+		<button class='button5' type='submit'>Delete Seat Assignments</button>
 		</form>";
 	}
 ?>
 <?php
 	//back button that shows up regardless
 	echo 
-		"<br><form action='StartPage.php'>
+		"<br><form action='StartPage.php'><br><br>
 		<button class='button2' type='submit'>Back</button>
 		</form>";
 ?>

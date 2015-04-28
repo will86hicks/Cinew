@@ -36,6 +36,7 @@ Edit Account
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+	background: lightgreen;
 }
 th, td {
     padding: 5px;
@@ -44,6 +45,7 @@ th, td {
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
 }
 .button1{
 	background: yellow;

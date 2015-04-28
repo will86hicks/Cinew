@@ -5,10 +5,6 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 
@@ -21,8 +17,8 @@ Admin Panel
 </title>
 </head>
 
-<body style="background-color:lightgrey">
-<div align="left">
+<body style="background-color:darkgrey">
+<div align='center'>
 
 <h1><u>Add to Theater</u></h1>
 <head>
@@ -33,12 +29,17 @@ Admin Panel
 	width: 100px;
 	height: 50px
 }
-
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 130px;
+	height: 50px
+}
 .button4{
-	background: orange;
-	font-size: 24px;
-	width: 150px;
-	height: 80px
+	background: lightblue;
+	font-size: 16px;
+	width: 80px;
+	height: 40px
 }
 
 .form1 {
@@ -51,12 +52,21 @@ Admin Panel
 
 <head>
 	<title>Theater</title>
-	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
-			
+<style> 
+table, th, td {
+	border: 1px solid black; border-collapse: collapse;
+	background: lightgreen;
+}
+th, td {
+	padding: 5px;text-align: center;
+}		
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
+}
+input,select{
+	background: lightblue;
 }
 </style>
 
@@ -81,8 +91,8 @@ caption{
 		echo"</select>";
 		echo"<br><br>
 		Max Capacity: <input type='number' name='cap'><br><br>
-		Seating Arrangement: <input type='text' name='seat_chart' placeholder='5x20'><br>
-		<input align='center' type='submit' name='theater_button' value='Add this Theater'></form>";
+		Seating Arrangement: <input type='text' name='seat_chart' placeholder='5x20'><br><br>
+		<input align='center' type='submit' name='theater_button' value='Add this Theater' class='button1'></form>";
 		
 		//if the 'Add this Theater' button gets pressed, insert all this information into the database
 		if(isset($_POST['theater_button']))
@@ -106,14 +116,6 @@ caption{
 				}
 			}
 		}
-		
-		
-		//a back button to go to previous page
-		echo 
-		"<br>
-		<form action='AdminPanelForm.php'>
-		<button class='button2' type='submit'>Back</button>
-		</form>";
 	}
 	else{
 		//if the user trying to access this page isn't an admin, display this message and give them
@@ -143,8 +145,8 @@ while($row = mysql_fetch_array($alltheaters)){
 	$cinplexNameFromID = mysql_query("SELECT C.name FROM cinplex C, theater T WHERE C.id = T.cinplex_id AND T.number = ");
 	echo "<tr> 
 				<th>
-				<form action='' method= 'POST'>
-						<button type = 'submit'  value = '{$row['number']}' name = 'delete_number'>Delete</button>
+				<form action='' method= 'POST'><br>
+						<button type = 'submit'  value = '{$row['number']}' name = 'delete_number' class='button4'>Delete</button>
 						<input type='hidden' value= '{$row['cinplex_id']}' name= 'delete_cinplex_id'>
 					</form>";
 	$cinplexNameFromID = mysql_query("SELECT C.name FROM cinplex C, theater T WHERE C.id = T.cinplex_id AND T.number = {$row['number']} AND T.cinplex_id = {$row['cinplex_id']}") or die(mysql_error());

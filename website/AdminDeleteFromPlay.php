@@ -11,7 +11,7 @@ $user = $_SESSION["user"];
 
 
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <head>
 <title> 
@@ -19,25 +19,48 @@ List of Plays
 </title>
 </head>
 
+
 <head>
 <style>
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+	background: lightgreen;
 }
 th, td {
     padding: 5px;
-    text-align: left;
+    text-align: center;
 }
 caption{
 	font-size: 48px
+	background: lightgreen;
+}
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
 }
 </style>
 </head>
 
 <div align="center">
+<h1><u>Delete From Play</u></h1>
 <?php
-echo "<table style='width:50%'><tr>
+echo "<table style='width:50%'>
+	<tr>
 	  <th>Delete</>
 	  <th>Theater</th>
 	  <th>Cinema</th>
@@ -60,11 +83,13 @@ if($num_results > 0){
 		$b = $a[0];
 		echo
 		"<tr>
-		<th><form action= 'AdminDeleteFromPlaySubmit.php' method= 'POST'> 
-				<button type = 'submit'  value = '{$row['t_num']}' name = 't_num'>Remove Play</button> 
+		<th><form action= 'AdminDeleteFromPlaySubmit.php' method= 'POST'><br>
+				<div align='center'>
+				<button type = 'submit'  value = '{$row['t_num']}' name = 't_num' class='button3'>Remove Play</button> 
 				<input type='hidden' value= '{$row['showtime']}' name= 'showtime'>
 				<input type='hidden' value= '{$row['cinplex_id']}' name= 'cinplex_id'>
 				<input type='hidden' value= '{$row['movie_id']}' name= 'movie_id'>
+				</div>
 		</form> </th>
 		<th>{$row['t_num']}</th>
 		<th>{$y}</th>
@@ -88,7 +113,7 @@ echo"</table>";
 
 <h3 >Go Back</h3>
 <form action="AdminPanelForm.php" method="POST">
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </form>
 
 </div>

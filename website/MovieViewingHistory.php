@@ -11,7 +11,7 @@ echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
 
 
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <head>
 <title> 

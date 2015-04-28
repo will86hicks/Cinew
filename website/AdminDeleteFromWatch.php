@@ -21,8 +21,8 @@ echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
 .button1{
 	background: green;
 	font-size: 16px;
-	width: 100px;
-	height: 50px
+	width: 140px;
+	height: 60px
 }
 select{
 	background: lightblue;
@@ -39,7 +39,7 @@ input{
 </head>
 
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <head>
 	
 	<script>
@@ -110,14 +110,14 @@ input{
 	<br><br>
 
 
-	<button>Delete Watched Movie</button>
+	<button class='button1'>Delete Watched Movie</button>
 </form>
 
 
 
 <form action="AdminPanelForm.php" method="POST">
 <h3>Go Back</h3>
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </form>
 
 </body>

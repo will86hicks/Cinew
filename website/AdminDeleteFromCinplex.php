@@ -6,10 +6,6 @@
 include 'login.php';
 echo "<p><b>Logged In As: {$_SESSION["user"]}</b></p>";
 echo "<p><b>Today's Date: {$_SESSION["today_date"]}</b></p>";
-echo 
-	"<form action='logout.php'>
-	<div align='left'> <button class='button2'>LOG OUT</button> </div>
-	</form>";
 $user = $_SESSION["user"];
 ?>
 
@@ -22,7 +18,7 @@ Admin Panel
 </title>
 </head>
 
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 <div align="center">
 
 <h1><u>Delete From Cinplex</u></h1>
@@ -36,10 +32,10 @@ Admin Panel
 }
 
 .button4{
-	background: orange;
-	font-size: 24px;
-	width: 150px;
-	height: 80px
+	background: lightblue;
+	font-size: 16px;
+	width: 120px;
+	height: 40px
 }
 
 .form1 {
@@ -51,13 +47,22 @@ Admin Panel
 </style>
 
 <head>
-	<title>Cinplex</title>
-	<style> table, th, td {border: 1px solid black; border-collapse: collapse;}
-				th, td {padding: 5px;text-align: center;}
+<title>Cinplex</title>
+	
+<style> 
+table, th, td {
+	border: 1px solid black; border-collapse: collapse;
+	background: lightgreen;
+}
+				
+th, td {
+	padding: 5px;text-align: center;
+}
 			
 caption{
 	border: 1px solid black;
 	font-size: 30;
+	background: lightgreen;
 }
 </style>
 
@@ -78,7 +83,7 @@ while($row = mysql_fetch_array($allcinplexes)){
 	echo "<tr> 
 				<th>
 				<form action='' method= 'POST'>
-						<button type = 'submit'  value = '{$row['id']}' name = 'cinplex_id'>Delete</button>
+						<button type = 'submit'  value = '{$row['id']}' name = 'cinplex_id' class='button4'>Delete</button>
 					</form>
 				</th>
 				<th> {$row['name']}</th>

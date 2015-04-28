@@ -11,7 +11,7 @@ $user = $_SESSION["user"];
 
 
 <html>
-<body style="background-color:lightgrey">
+<body style="background-color:darkgrey">
 
 <head>
 <title> 
@@ -24,6 +24,7 @@ Movie Display
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+	background:lightgreen;
 }
 th, td {
     padding: 5px;
@@ -31,6 +32,33 @@ th, td {
 }
 caption{
 	font-size: 48px
+	background:lightgreen;
+}
+.button2{
+	background: red;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
+}
+
+.button4{
+	background: orange;
+	font-size: 24px;
+	width: 150px;
+	height: 80px
+}
+
+.button1{
+	background: green;
+	font-size: 16px;
+	width: 130px;
+	height: 50px
+}
+.button3{
+	background: lightblue;
+	font-size: 16px;
+	width: 100px;
+	height: 50px
 }
 </style>
 </head>
@@ -55,7 +83,7 @@ if($num_results > 0){
 		echo
 		"<tr>
 		<th><form action= 'AdminDeleteFromMovieSubmit.php' method= 'POST'> 
-				<button type = 'submit'  value = '{$row['id']}' name = 'movieID'>Delete Movie</button>  						  					
+				<button type = 'submit'  value = '{$row['id']}' name = 'movieID' class='button3'>Delete Movie</button>  						  					
 		</form> </th>
 
 		<th>{$row['title']}</th>
@@ -82,7 +110,7 @@ echo"</table>";
 
 <h3 >Go Back</h3>
 <form action="AdminPanelForm.php" method="POST">
-<button>BACK</button>
+<button class='button2'>BACK</button>
 </form>
 
 </div>
