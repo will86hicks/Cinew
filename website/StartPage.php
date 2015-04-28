@@ -72,7 +72,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action=''>
+		"<form action='EmployeeScheduleMovieForm.php'>
 		<button class='button3' type='submit'>Schedule Movie</button>
 		</form>";
 	}
