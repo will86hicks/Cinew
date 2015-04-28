@@ -19,48 +19,27 @@ echo
 
 <?php
 
-//Accessing the form variable from AdminDeleteFromMember.php
-$memberToDelete = $_POST['member_id'];
-$acct = $_POST['acct'];
+//Accessing the form variables
+$resId = $_POST['res_id'];
 
-//Check to see if the about to deleted member has any dependants
 												
-$dependents = mysql_query("SELECT *
-											FROM membership mp, member m 
-											WHERE m.membership_acct = mp.acct AND
-												mp.prim_member = {$memberToDelete} AND
-												m.id != {$memberToDelete} ") or die(mysql_error());
 												
-//Deleting the member	
+//Deleting the reservation seat	
 
-	if(mysql_query("DELETE FROM member WHERE id = '{$memberToDelete}'")){
+	mysql_query("DELETE FROM reservation WHERE id = {$resId}");
+	if(mysql_affected_rows() !=0){
+		echo "<p style= 'text-align:center'>Successfully Deleted Reservation</p>";
 		
-		if(mysql_query("DELETE FROM membership WHERE prim_member = {$memberToDelete}")){
-			
-			echo"<p> Member was a primary member of a membership.  The membership account associated with member '{$memberToDelete}' has been deleted.</p>";
-			
-			//If the member has any dependants, delete them too
-			if(mysql_num_rows($dependents) != 0){				
-				
-				if(mysql_query("DELETE FROM member WHERE membership_acct = {$acct}")){
-						echo "<p>Member had dependants associated with their account.  They have been deleted as well.</p>";
-				}
-				
-			}
-				
-		}
-		
-		echo "<p style='text-align:center'>Successfully deleted member!</p>";
 	}
 	else{
-		echo "<p style='text-align:center'>An error occurred when trying to delete member '{$memberToDelete}'</p>";
+		echo "<p style='text-align:center'>An error occurred when trying to delete the Reservation.  The reservation ID didn't match any existing reservations</p>";
 	}
 
 ?>
 
 <div style="text-align:center">
-<form action = "AdminDeleteFromMember.php">
-	<button type = "submit" >Delete Another Member</button>
+<form action = "AdminDeleteFromReservation.php">
+	<button type = "submit" >Delete Another Reserved Seat</button>
 </form>
 
 <form action = "AdminPanelForm.php">
