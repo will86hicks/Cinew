@@ -14,6 +14,7 @@ echo
 	<div align='left'> <button class='button2'>LOG OUT</button> </div>
 	</form>";
 $user = $_SESSION["user"];
+$id = $_SESSION["ID"];
 ?>
 
 <html>
@@ -72,7 +73,7 @@ Welcome!
 		</form>";
 		
 		echo 
-		"<form action='EmployeeScheduleMovieForm.php'>
+		"<form action=''>
 		<button class='button3' type='submit'>Schedule Movie</button>
 		</form>";
 	}
@@ -109,10 +110,25 @@ Welcome!
 		<button class='button1' type='submit'>View History</button>
 		</form>";
 		
-		echo 
-		"<form action='addDependent.php'>
-		<button class='button1' type='submit'>Add Dependent</button>
-		</form>";
+		//$curious = mysql_query("SELECT DISTINCT MEM.prim_member FROM membership MEM, member M
+		//											WHERE MEM.prim_member = M.id
+		//											AND M.membership_acct = MEM.acct
+		//											AND M.id = {$id}");
+													
+		
+		$primMember = mysql_query("SELECT DISTINCT M.id FROM membership MEM, member M WHERE M.id = MEM.prim_member
+										AND M.membership_acct = MEM.acct
+										AND MEM.prim_member = M.id
+										AND M.id = {$id}");
+		$x = mysql_fetch_array($primMember);
+		$y = $x[0];
+		if($y == $id)
+		{
+			echo 
+			"<form action='addDependent.php'>
+			<button class='button1' type='submit'>Add Dependent</button>
+			</form>";
+		}
 	}
 ?>
 
