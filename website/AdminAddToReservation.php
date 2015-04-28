@@ -131,9 +131,6 @@ input{
 			var t = document.getElementById('theaterSelect').value;
 			var m =  document.getElementById('movieSelect').value;
 			
-			document.getElementById("showtimeSelect").innerHTML= c + t;
-			
-			
 			if(m == ""){
 				document.getElementById("showtimeSelect").innerHTML = "";
 				return;
@@ -158,6 +155,48 @@ input{
 				}
 				
 			xmlhttp.open("GET", "getShowtime.php?c=" + c + '&t=' + t + '&m=' + m, true);
+			xmlhttp.send();
+			
+		}
+	}
+	</script>
+	
+	<script>
+		function populateSeatTable(){
+			var xmlhttp;
+
+			var cinplexID = document.getElementById('cinplex').value;
+			var theater = document.getElementById('theaterSelect').value;
+			var movieID =  document.getElementById('movieSelect').value;
+			var showtime =  document.getElementById('showtimeSelect').value;
+			var member =  document.getElementById('memberSelect').value;
+			
+			
+			
+			if(member == ""){
+				document.getElementById("seatTable").innerHTML = "";
+				return;
+			}
+			else{
+				
+				if(window.XMLHttpRequest)
+					{
+						xmlhttp = new XMLHttpRequest();
+					}
+				else
+				{
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			
+				xmlhttp.onreadystatechange = function(){
+					
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+					{
+						document.getElementById("seatTable").innerHTML=xmlhttp.responseText;
+					}
+				}
+				
+			xmlhttp.open("POST", "getSeatResDisplay.php?cinplexID=" + cinplexID + '&theater=' + theater + '&movieID=' + movieID +'&showtime=' + showtime, true);
 			xmlhttp.send();
 			
 		}
@@ -216,7 +255,7 @@ input{
 	
 	<br><br>
 	Select a Member:
-	<select name="memberId" required>
+	<select name="memberId" id = "memberSelect" onchange = "poulateSeatTable()" required>
 	<option value = ''></option>
 	<?php
 	
@@ -227,10 +266,14 @@ input{
 	}
 	?>
 	</select>
-
 	<br><br>
 
 
+	
+	<div id = "seatTable" >this is where the table will spawn</div>
+	
+		<br><br>
+	
 	<button>Add Reservation</button>
 </form>
 
